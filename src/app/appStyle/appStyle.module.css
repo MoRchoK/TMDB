@@ -1,0 +1,10 @@
+
+
+.appContainer {
+    margin: 0 auto;
+    background-color: green;
+    max-width: 1230px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 15px;
+}
