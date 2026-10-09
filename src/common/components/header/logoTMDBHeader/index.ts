@@ -1,0 +1,1 @@
+export {LogoTMDBHeader} from './LogoHeader.tsx'
