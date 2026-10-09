@@ -3,14 +3,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-
     width: 100%;
     height: 75px;
     padding: 15px 24px;
 
 }
-
-
 
 .headerContainer {
     max-width: 1200px;

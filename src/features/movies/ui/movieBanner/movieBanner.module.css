@@ -1,0 +1,58 @@
+.movieBanner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    img {
+        position: relative;
+        max-height: 700px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: linear-gradient(rgba(4, 21, 45, 0) 0%, rgb(18, 18, 18) 79.17%);
+    }
+
+}
+
+.infoWrapper {
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    max-width: 1250px;
+    padding: 0 24px;
+    width: 100%;
+    color: white;
+    gap: 24px;
+
+}
+
+.searchWrapper {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 40px;
+    gap: 12px;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.description {
+    font-size: 24px;
+    font-weight: 600;
+}
