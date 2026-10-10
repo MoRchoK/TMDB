@@ -1,0 +1,10 @@
+.tabMenu {
+    color: white;
+    display: flex;
+    height: 35px;
+    gap: 12px;
+    justify-content: center;
+    button:hover{
+        color: #1d4ed8;
+    }
+}

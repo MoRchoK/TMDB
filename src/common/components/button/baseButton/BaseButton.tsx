@@ -1,17 +1,11 @@
 import type { FC } from 'react'
 import s from './baseButton.module.css'
-
-type BaseButtonType = {
-  title: string,
-}
+import type { ButtonType } from '@/common/components/button/baseButton/buttonType.tsx'
 
 
-
-
-export const BaseButton: FC<BaseButtonType> = ({title}) => {
-
+export const BaseButton: FC<ButtonType> = ({title, mode}) => {
   return (
-    <button className={s.baseButton}>
+    <button className={`${mode === 'base'? s.baseButton: s.accentButton} `}  >
       {title}
     </button>
   )

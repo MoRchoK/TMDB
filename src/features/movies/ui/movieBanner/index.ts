@@ -1,1 +1,0 @@
-export {MovieBanner} from "./MovieBanner";

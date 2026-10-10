@@ -1,0 +1,1 @@
+export { HeaderMovieCard } from './HeaderMovieCard.tsx'

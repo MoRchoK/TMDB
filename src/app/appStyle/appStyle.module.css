@@ -1,10 +1,9 @@
-
-
 .appContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
     margin: 0 auto;
-    background-color: green;
     max-width: 1230px;
     width: 100%;
-    min-height: 100vh;
-    padding: 0 15px;
+    padding: 64px 15px;
 }

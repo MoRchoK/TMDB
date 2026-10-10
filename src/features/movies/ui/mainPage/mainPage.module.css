@@ -1,0 +1,10 @@
+.mainContentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    margin: 0 auto;
+    max-width: 1230px;
+    width: 100%;
+    padding: 64px 15px;
+}
+

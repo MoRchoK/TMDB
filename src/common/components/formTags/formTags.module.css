@@ -1,0 +1,17 @@
+.tagsWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    button:hover{
+        background-color: #f3f4f6;
+        border-color: #2563eb;
+        box-shadow: 0 0 2px #2563eb;
+    }
+}
+.resetBtnWrapper{
+    button:hover{
+        background-color: #1d4ed8;
+    }
+}

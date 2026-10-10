@@ -1,7 +1,9 @@
 import s from './movieBanner.module.css'
-import movieBanner from '../../../../assets/posterBanner.webp'
-import { BaseButton } from '@/common/components/button/baseButton/BaseButton.tsx'
-import { BaseInput } from '@/common/components/input/baseInput/BaseInput.tsx'
+import movieBanner from '../../../../../assets/posterBanner.webp'
+import { SearchForm } from '@/common/components/searchForm'
+
+
+
 
 
 export const MovieBanner: React.FC = () => {
@@ -12,10 +14,7 @@ export const MovieBanner: React.FC = () => {
       <div className={s.infoWrapper}>
         <h2 className={s.title}>WELCOME</h2>
         <span className={s.description}>Browse highlighted titles from TMDB</span>
-        <div className={s.searchWrapper}>
-          <BaseInput/>
-          <BaseButton title={'Search'}/>
-        </div>
+        <SearchForm/>
       </div>
     </section>
   )

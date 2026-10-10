@@ -1,0 +1,16 @@
+.paginationWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.categoryPageContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 0 auto;
+    max-width: 1230px;
+    width: 100%;
+    padding: 24px 15px;
+    min-height: calc(100vh - 75px - 55px);
+
+}
