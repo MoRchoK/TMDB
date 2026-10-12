@@ -1,6 +1,7 @@
+import type { CategoriesPath } from '@/common/constants'
+
 export type categoriesMoviesType = {
   title: string
-  path: categoriesMoviesPathType
+  path: CategoriesPath
 }
 
-export type categoriesMoviesPathType = '/popular' | '/top-rated' | '/upcoming'| '/now-playing'

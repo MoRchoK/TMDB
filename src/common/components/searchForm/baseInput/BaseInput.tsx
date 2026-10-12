@@ -1,8 +1,9 @@
-import TextField from '@mui/material/TextField'
+
 import type { FC } from 'react'
+import TextField from '@mui/material/TextField';
+import type { TextFieldProps } from '@mui/material/TextField';
 
-
-export const BaseInput: FC = () => {
+export const BaseInput: FC<TextFieldProps> = (props) => {
 
   return (
     <TextField id="outlined-basic" variant="outlined"
@@ -25,6 +26,6 @@ export const BaseInput: FC = () => {
                    border: '1px solid #d1d5db'
                  }
 
-               }} placeholder={'Search for a movie'} />
+               }} placeholder={'Search for a movie'}  {...props} />
   )
 }

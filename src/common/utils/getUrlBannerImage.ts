@@ -1,0 +1,1 @@
+export const getUrlBannerImage = (url: string): string => `${import.meta.env.VITE_BASE_IMAGEURL}/w1280${url}`

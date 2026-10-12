@@ -1,16 +1,39 @@
 import s from '@/features/movies/ui/mainPage/movieBanner/movieBanner.module.css'
-
-import { BaseButton } from '@/common/components/button/baseButton'
 import type { FC } from 'react'
-import { BaseInput } from './baseInput/BaseInput.tsx'
+import { useNavigate } from 'react-router'
+import { Path } from '@/common/constants'
+import { type SubmitHandler, useForm } from 'react-hook-form'
+import { BaseButton } from '@/common/components/button/baseButton'
+import { BaseInput } from '@/common/components/searchForm/baseInput'
 
 
+type Inputs = {
+  search: string
+}
 
-export const SearchForm: FC = ()=>{
+
+export const SearchForm: FC = () => {
+  const navigate = useNavigate()
+  const {
+    register,
+    handleSubmit,
+  } = useForm<Inputs>()
+
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    navigate({
+      pathname: Path.Search,
+      search: `?query=${data.search}`,
+    })
+  }
+
   return (
     <div className={s.searchWrapper}>
-      <BaseInput/>
-      <BaseButton title={'Search'} mode={'accent'}/>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <BaseInput  {...register('search')} />
+        <BaseButton title={'Search'} mode={'accent'} type={'submit'} />
+      </form>
     </div>
+
   )
 }

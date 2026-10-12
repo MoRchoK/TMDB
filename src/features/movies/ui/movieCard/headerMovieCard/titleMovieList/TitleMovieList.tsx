@@ -3,8 +3,8 @@ import s from './titleMovieList.module.css'
 
 
 
-export const TitleMovieList: FC = () => {
+export const TitleMovieList: FC<{title: string}> = ({title}) => {
   return (
-      <h3 className={s.cardTitle}>Popular Movies</h3>
+      <h3 className={s.cardTitle}>{title}</h3>
   )
 }

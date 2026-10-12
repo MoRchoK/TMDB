@@ -18,7 +18,7 @@ export const BasePagination = () => {
       setSiblingCount(0)
     }
   }
-  console.log(page, siblingCount)
+
   return (
     <Pagination
       count={countPage}

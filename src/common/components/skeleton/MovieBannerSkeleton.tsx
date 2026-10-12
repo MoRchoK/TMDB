@@ -1,0 +1,110 @@
+import Skeleton from '@mui/material/Skeleton'
+import Box from '@mui/material/Box'
+import s from '@/features/movies/ui/mainPage/movieBanner/movieBanner.module.css'
+import type { FC } from 'react'
+
+export const MovieBannerSkeleton: FC = () => {
+  return (
+    <section className={s.movieBanner}>
+      <div className={s.infoWrapper}>
+        {/* WELCOME */}
+        <Skeleton
+          variant="text"
+          animation="wave"
+          width={320}
+          sx={{
+            fontSize: '48px',
+            lineHeight: 1.2,
+            backgroundColor: 'rgba(255,255,255,0.15)',
+          }}
+        />
+
+        {/* description */}
+        <Skeleton
+          variant="text"
+          animation="wave"
+          width={420}
+          sx={{
+            fontSize: '24px',
+            height: '50px',
+            backgroundColor: 'rgba(255,255,255,0.15)',
+          }}
+        />
+
+        {/* SearchForm: input + кнопка */}
+        <div className={s.searchWrapper}>
+          <Skeleton
+            variant="rounded"
+            animation="wave"
+            sx={{
+              height: 40,
+              width: 450,
+              borderRadius: '8px',
+              marginRight: '12px',
+              backgroundColor: 'rgba(255,255,255,0.15)',
+            }}
+          />
+          <Skeleton
+            variant="rounded"
+            animation="wave"
+            width={110}
+            sx={{
+              height: 40,
+              width: 70,
+              borderRadius: '999px',
+              backgroundColor: 'rgba(255,255,255,0.15)',
+            }}
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* -----------------------
+/* ============================================================
+   2. Skeleton карточки фильма (MovieCard)
+   Подгоните размеры под свою реальную карточку
+   ============================================================ */
+export const MovieCardSkeleton: FC = () => {
+  return (
+    <Box sx={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '24px', padding: '64px 0' }}>
+      {Array(5).fill(null).map(() => (
+        <div style={{ width: '100%' }}>
+          {/* постер */}
+          <Skeleton
+            variant="rectangular"
+            animation="wave"
+            sx={{
+              width: '100%',
+              height: '330px',
+              borderRadius: '12px',
+            }}
+          />
+          {/* название */}
+          <Skeleton
+            variant="text"
+            animation="wave"
+            height="40px"
+            width="75%"
+            sx={{ fontSize: '20px', mt: .5 }}
+          />
+        </div>
+      ))}
+
+    </Box>
+  )
+}
+
+
+
+export const MoviePageSkeleton: FC = () => {
+  return (
+    <section className={s.mainPageContainer}>
+      {/* баннер */}
+      <MovieBannerSkeleton />
+      {/* фильмы */}
+      <MovieCardSkeleton />
+    </section>
+  )
+}

@@ -1,22 +1,31 @@
 import s from './moviesListItem.module.css'
-import movieCard from '@/assets/movieCard.jpg'
+import { type FC, memo } from 'react'
+import type { MoviesListItemType } from './moviesListItem.ts'
 
-export const MoviesListItem = () => {
+export const MoviesListItem  = memo(({title, imageUrl, rating}) => {
+  const RATING_STYLES = {
+    low:    { bg: '#dc2626', color: '#fff' },
+    medium: { bg: '#facc15', color: '#111827' },
+    high:   { bg: '#16a34a', color: '#fff' },
+  } as const;
+
+  const threshold = rating < 5 ? 'low' : rating < 7 ? 'medium' : 'high';
+  const { bg, color } = RATING_STYLES[threshold];
+
+  const ratingValue = Number.isInteger(rating)? rating.toFixed(1): rating
 
   return (
-    <>
       <div className={s.cardItemWrapper}>
         <div className={s.cardImageWrapper}>
-          <img src={movieCard} alt={'movieCard'} className={s.cardImage} />
+          <span className={s.ratingCard} style={{backgroundColor: bg, color: color}}>{ratingValue}</span>
+          <img src={imageUrl} alt={'movieCard'} className={s.cardImage} />
           <div className={s.likeIconWrapper}>
             <svg className={s.likeIcon} width={20} height={20}>
               <use href="/iconsSprites.svg#like" />
             </svg>
           </div>
         </div>
-        <span className={s.movieTitle}>Spider-Man: Brand New Day</span>
+        <span className={s.movieTitle}>{title}</span>
       </div>
-    </>
-
   )
-}
+}) as FC<MoviesListItemType>

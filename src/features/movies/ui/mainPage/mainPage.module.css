@@ -1,4 +1,4 @@
-.mainContentContainer {
+.mainContentWrapper {
     display: flex;
     flex-direction: column;
     gap: 56px;
@@ -8,3 +8,6 @@
     padding: 64px 15px;
 }
 
+.mainPageContainer{
+    min-height: calc(100vh - 75px - 55px);;
+}
