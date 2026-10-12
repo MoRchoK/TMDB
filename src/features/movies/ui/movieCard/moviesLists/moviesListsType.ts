@@ -2,4 +2,5 @@ import type { baseResultsMovieResponseType } from '@/common/schemas/movieListApi
 
 export type MoviesListsType = {
   moviesData: baseResultsMovieResponseType[]
+  countCard?: number
 }

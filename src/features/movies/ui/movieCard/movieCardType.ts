@@ -4,4 +4,6 @@ export type MovieCardType = {
   moviesData: baseResultsMovieResponseType[]
   categoryTitle: string
   redirectPath?: string
+  countCard?: number
+
 }

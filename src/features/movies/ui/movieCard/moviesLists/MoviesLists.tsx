@@ -5,9 +5,10 @@ import type { MoviesListsType } from './moviesListsType.ts'
 import { getUrlPoserImage } from '@/common/utils/getUrlPosterImage.ts'
 
 
-export const MoviesLists = memo(({moviesData}) => {
+export const MoviesLists = memo(({moviesData, countCard = 5 }) => {
+
   return (
-    <div className={s.movieCardWrapper}>
+    <div className={s.movieCardWrapper} style={{gridTemplateColumns: `repeat(${countCard}, 1fr)`}}>
       {moviesData.map((movie) => <MoviesListItem
             rating={Number(movie.vote_average.toFixed(1))}
             title={movie.title}

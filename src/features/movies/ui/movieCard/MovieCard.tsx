@@ -8,13 +8,13 @@ import type { MovieCardType } from '@/features/movies/ui/movieCard/movieCardType
 
 
 
-export const MovieCard  = memo(({moviesData, categoryTitle, redirectPath}) => {
+export const MovieCard  = memo(({moviesData, categoryTitle, redirectPath, countCard}) => {
   return (
     <div className={s.movieCardContainer}>
       <HeaderMovieCard categoryTitle={categoryTitle}
                        buttonTitle={'View more'}
                        redirectPath={redirectPath}/>
-      <MoviesLists moviesData={moviesData} />
+      <MoviesLists moviesData={moviesData} countCard={countCard}/>
     </div>
   )
 }) as FC<MovieCardType>

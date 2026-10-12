@@ -2,18 +2,29 @@ import type { FC } from 'react'
 import { TitleMovieList } from '@/features/movies/ui/movieCard/headerMovieCard/titleMovieList/TitleMovieList.tsx'
 import { MoviesLists } from '@/features/movies/ui/movieCard/moviesLists'
 import s from './сategoryContent.module.css'
+import type { CategoryContentType } from '@/features/movies/ui/categoryPage/categoryContent/categoryContentType.ts'
+import { CategoryContentSkeleton } from '@/common/components/skeleton/CategoryContentSkeleton.tsx'
+import { BasePagination } from '@/common/components/basePagination'
 
 
+export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, moviesData, isLoading }) => {
 
+  const isLoadingPage = !moviesData?.results || isLoading
+  if (isLoadingPage) return <CategoryContentSkeleton />
 
-export const CategoryContent: FC = () => {
+  const totalPages =moviesData.total_pages
+  const sizePage =moviesData.results.length
 
-  const moviesData = Array(12).fill(null)
 
   return (
+    <>
       <div className={s.categoryContent}>
-        <TitleMovieList />
-        <MoviesLists moviesData={moviesData}/>
+        <TitleMovieList title={categoryTitle} />
+        <MoviesLists moviesData={moviesData.results} />
       </div>
+      <div className={s.paginationWrapper}>
+        <BasePagination totalPages={totalPages} sizePage={sizePage} />
+      </div>
+    </>
   )
 }

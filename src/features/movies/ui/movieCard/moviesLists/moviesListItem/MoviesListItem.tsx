@@ -1,17 +1,13 @@
 import s from './moviesListItem.module.css'
 import { type FC, memo } from 'react'
 import type { MoviesListItemType } from './moviesListItem.ts'
+import { RATING_STYLES } from '@/common/constants'
+
+
 
 export const MoviesListItem  = memo(({title, imageUrl, rating}) => {
-  const RATING_STYLES = {
-    low:    { bg: '#dc2626', color: '#fff' },
-    medium: { bg: '#facc15', color: '#111827' },
-    high:   { bg: '#16a34a', color: '#fff' },
-  } as const;
-
   const threshold = rating < 5 ? 'low' : rating < 7 ? 'medium' : 'high';
   const { bg, color } = RATING_STYLES[threshold];
-
   const ratingValue = Number.isInteger(rating)? rating.toFixed(1): rating
 
   return (

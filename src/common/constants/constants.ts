@@ -1,8 +1,6 @@
-import type { categoriesMoviesType } from '@/features/movies/ui/categoryPage/categoryPageType.ts'
-
 export const Path = {
   Main: '/',
-  Movies: '/movies',
+  CategoryMovies: '/movies',
   FilteredMovies: '/filtered-movies',
   Search: '/search',
   Favorites: '/favorites',
@@ -11,7 +9,7 @@ export const Path = {
 
 export const pages  = [
   {title: 'Main', path: Path.Main},
-  {title: 'Movies', path: Path.Movies},
+  {title: 'Category movies', path: Path.CategoryMovies},
   {title: 'Filtered Movies', path: Path.FilteredMovies},
   {title: 'Search', path: Path.Search},
   {title: 'Favorites', path: Path.Favorites},
@@ -20,20 +18,31 @@ export const pages  = [
 
 export type PathType = typeof Path;
 
+export const popularMovies = { title: 'Popular Movies', path: '/popular' } as const
+export const topRatedMovies = { title: 'Top Rated Movies', path: '/top-rated' } as const
+export const upcomingMovies = { title: 'Upcoming Movies', path: '/upcoming' } as const
+export const nowPlayingMovies = { title: 'Now Playing Movies', path: '/now-playing' } as const
 
 
 export const categoriesPath = {
-  PopularMovies: '/popular',
-  TopRatedMovies: '/top-rated',
-  UpcomingMovies: '/upcoming',
-  NowPlayingMovies: '/now-playing',
+  PopularMovies: `${Path.CategoryMovies}${popularMovies.path}`,
+  TopRatedMovies: `${Path.CategoryMovies}${topRatedMovies.path}`,
+  UpcomingMovies: `${Path.CategoryMovies}${upcomingMovies.path}`,
+  NowPlayingMovies: `${Path.CategoryMovies}${nowPlayingMovies.path}`,
 } as const;
 
 export type CategoriesPath = (typeof categoriesPath)[keyof typeof categoriesPath]
 
 
-export const categoriesMovies: categoriesMoviesType[] = [
-  { title: 'Popular Movies', path: '/popular' },
-  { title: 'Top Rated Movies', path: '/top-rated'},
-  { title: 'Upcoming Movies', path: '/upcoming' },
-  { title: 'Now Playing Movies', path: '/now-playing' }]
+export const categoriesMovies = [
+  popularMovies,
+  topRatedMovies,
+  upcomingMovies,
+  nowPlayingMovies] as const
+
+
+export const RATING_STYLES = {
+  low:    { bg: '#dc2626', color: '#fff' },
+  medium: { bg: '#facc15', color: '#111827' },
+  high:   { bg: '#16a34a', color: '#fff' },
+} as const;

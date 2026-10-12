@@ -61,15 +61,16 @@ export const MovieBannerSkeleton: FC = () => {
   )
 }
 
-/* -----------------------
-/* ============================================================
-   2. Skeleton карточки фильма (MovieCard)
-   Подгоните размеры под свою реальную карточку
-   ============================================================ */
-export const MovieCardSkeleton: FC = () => {
+type MovieCardSkeletonType = {
+  countCard?: number
+
+}
+export const MovieCardSkeleton: FC<MovieCardSkeletonType> = ({countCard = 5}) => {
+
+
   return (
     <Box sx={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '24px', padding: '64px 0' }}>
-      {Array(5).fill(null).map(() => (
+      {Array(countCard).fill(null).map(() => (
         <div style={{ width: '100%' }}>
           {/* постер */}
           <Skeleton
@@ -97,8 +98,7 @@ export const MovieCardSkeleton: FC = () => {
 }
 
 
-
-export const MoviePageSkeleton: FC = () => {
+export const MovieMainPageSkeleton: FC = () => {
   return (
     <section className={s.mainPageContainer}>
       {/* баннер */}
