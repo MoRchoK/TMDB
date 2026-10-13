@@ -4,4 +4,5 @@ export type ButtonType = {
   mode: 'accent' | 'base'
   type?: 'submit' | 'reset' | 'button'
   redirectPath?: string
+  onClick?: () => void
 }

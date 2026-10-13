@@ -5,13 +5,14 @@ import { useNavigate } from 'react-router'
 
 
 
-export const BaseButton: FC<ButtonType> = ({title, mode, redirectPath, type = 'button'}) => {
+export const BaseButton: FC<ButtonType> = ({title, mode, redirectPath, type = 'button', onClick}) => {
   const redirect = useNavigate()
 
 
   const onClickHandler = () =>{
     if(redirectPath) redirect(redirectPath)
-
+    if(!onClick) return
+    onClick()
   }
 
   return (

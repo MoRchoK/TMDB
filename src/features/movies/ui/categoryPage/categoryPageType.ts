@@ -5,3 +5,7 @@ export type categoriesMoviesType = {
   path: CategoriesPath
 }
 
+export type CategoryContext = {
+  page: number
+  onChangePage: (page: number) => void
+}

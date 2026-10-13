@@ -21,7 +21,10 @@ export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, movies
         <MoviesLists moviesData={moviesData.results} />
       </div>
       <div className={s.paginationWrapper}>
-        <BasePagination disabled={isFetching} totalPages={totalPages} page={page} onChange={onChangePage} maxPages={500} />
+        <BasePagination disabled={isFetching}
+                        totalPages={totalPages}
+                        page={page}
+                        onChange={onChangePage} maxPages={500} />
       </div>
     </>
   )
