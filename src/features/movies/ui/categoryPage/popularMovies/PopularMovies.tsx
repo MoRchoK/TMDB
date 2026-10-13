@@ -6,7 +6,9 @@ import { popularMovies } from '@/common/constants'
 
 export const PopularMovies: FC = () => {
   const [page, setPage] = useState<number>(1)
+
   const { data, isLoading } = useGetPopularMoviesQuery({page})
+
   const onChangePage = (page: number)=>{
     setPage(page)
   }

@@ -3,7 +3,7 @@ import { type ChangeEvent, type FC } from 'react'
 import type { BasePaginationType } from '@/common/components/basePagination/basePaginationType.ts'
 
 
-export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onChange, maxPages }) => {
+export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onChange, maxPages, disabled }) => {
 
   if (totalPages <= 1) return null
 
@@ -19,8 +19,6 @@ export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onCha
   } else {
     siblingCount = 1
   }
-
-
 
   const paginationChangeHandler = (_event: ChangeEvent<unknown, Element>, value: number) => {
     if (onChange) {
@@ -46,10 +44,12 @@ export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onCha
           pointerEvents: 'none',
         },
       }}
+
       hidePrevButton
       page={page}
       hideNextButton
       variant="outlined"
+      disabled={disabled}
       shape="rounded"
       siblingCount={siblingCount}
       boundaryCount={1}

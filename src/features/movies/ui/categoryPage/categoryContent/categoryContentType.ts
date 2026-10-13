@@ -3,6 +3,7 @@ import type { baseMovieResponseType } from '@/common/schemas/movieListApiSchemas
 export type CategoryContentType = {
   categoryTitle: string;
   moviesData: baseMovieResponseType  | undefined;
-  isLoading: boolean
+  isLoading?: boolean
+  isFetching?: boolean
   onChangePage?: (page: number) => void
 }

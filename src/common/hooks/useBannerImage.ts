@@ -5,7 +5,7 @@ import type { baseResultsMovieResponseType } from '@/common/schemas/movieListApi
 
 export const useBannerImage = (moviesData: baseResultsMovieResponseType[]) => {
 
-  const [bannerImage, setBannerImage] = useState<string>('')
+  const [bannerImage, setBannerImage] = useState<string | null >(null)
 
   useEffect(() => {
     if (!moviesData?.length) return
@@ -13,6 +13,7 @@ export const useBannerImage = (moviesData: baseResultsMovieResponseType[]) => {
       const idx = Math.floor(Math.random() * moviesData.length)
       setBannerImage(moviesData[idx]?.backdrop_path ?? null)
     }, 0)
+
     return () => clearTimeout(id)
   }, [moviesData])
 
