@@ -17,7 +17,7 @@ export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, movies
   return (
     <>
       <div className={s.categoryContent}>
-        <TitleMovieList title={categoryTitle} />
+        {categoryTitle && <TitleMovieList title={categoryTitle} />}
         <MoviesLists moviesData={moviesData.results} />
       </div>
       <div className={s.paginationWrapper}>

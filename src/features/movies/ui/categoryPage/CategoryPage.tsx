@@ -13,6 +13,7 @@ export const CategoryPage: FC = () => {
     onChangePage(1)
   }
 
+
   return (
     <div className={s.categoryPageContainer}>
       <CategoryTabs onClick={onTabsHandler}/>

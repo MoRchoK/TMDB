@@ -3,6 +3,7 @@ import s from './moviesLists.module.css'
 import { type FC, memo } from 'react'
 import type { MoviesListsType } from './moviesListsType.ts'
 import { getUrlPoserImage } from '@/common/utils/getUrlPosterImage.ts'
+import { defaultCardImage } from '@/common/constants'
 
 
 export const MoviesLists = memo(({moviesData, countCard = 5 }) => {
@@ -12,7 +13,7 @@ export const MoviesLists = memo(({moviesData, countCard = 5 }) => {
       {moviesData.map((movie) => <MoviesListItem
             rating={Number(movie.vote_average.toFixed(1))}
             title={movie.title}
-            imageUrl={getUrlPoserImage(movie.poster_path, 'w185')}
+            imageUrl={movie.poster_path? getUrlPoserImage(movie.poster_path, 'w185'): defaultCardImage}
             key={movie.id} />)}
     </div>
   )

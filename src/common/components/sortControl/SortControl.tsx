@@ -1,16 +1,17 @@
-import { type ChangeEvent, type FC, useState } from 'react'
+import { type ChangeEvent, type FC } from 'react'
 import s from './sortControl.module.css'
 import { FormControl, MenuItem, Select } from '@mui/material'
+import type { SortControlType } from '@/common/components/sortControl/sortControlType.ts'
+import type { SortMovieType } from '@/features/movies/api'
 
 
-export const SortControl: FC = () => {
+export const SortControl: FC<SortControlType > = ({optionsData , value , onChange}) => {
 
-  const [rating, setRating] = useState('')
 
-  const handleChange = (event: ChangeEvent<Omit<HTMLInputElement, 'value'> & { value: string; }, Element> | (Event & {
-    target: { value: string; name: string; };
+  const handleChange = (event: ChangeEvent<Omit<HTMLInputElement, string> & { value: SortMovieType; }, Element> | (Event & {
+    target: { value: SortMovieType; name: string; };
   })) => {
-    setRating(event.target.value)
+    onChange(event.target.value)
   }
 
 
@@ -21,7 +22,7 @@ export const SortControl: FC = () => {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={rating}
+          value={value}
           onChange={handleChange}
           sx={{
             height: 38,
@@ -38,11 +39,7 @@ export const SortControl: FC = () => {
             },
           }}
         >
-
-          <MenuItem sx={{ height: 20 }} value="">None</MenuItem>
-          <MenuItem sx={{ height: 20 }} value={10}>Ten</MenuItem>
-          <MenuItem sx={{ height: 20 }} value={20}>Twenty</MenuItem>
-          <MenuItem sx={{ height: 20 }} value={30}>Thirty</MenuItem>
+          {optionsData.map((item, index)=><MenuItem sx={{ height: 20 }} key={index} value={item.sortTag}>{item.title}</MenuItem>)}
         </Select>
       </FormControl>
     </div>

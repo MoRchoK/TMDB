@@ -1,10 +1,50 @@
 import { getDefaultImage } from '@/common/utils/getDefaultImage.ts'
 
-
-export const defaultBannerImage = getDefaultImage({width: 1200 , height: 720})
-export const defaultCardImage = getDefaultImage({width: 360 , height: 720})
+import { SortMovie, type sortMoviesParamsType } from '@/features/movies/api'
 
 
+export const defaultBannerImage = getDefaultImage({ width: 1200, height: 720 })
+export const defaultCardImage = getDefaultImage({ width: 360, height: 720 })
+
+
+
+
+export const sortMoviesParams: sortMoviesParamsType[] = [
+  {
+    title: 'По популярности (убывание)',
+    sortTag: SortMovie.popularityDesc,
+  },
+  {
+    title: 'По популярности (возрастание)',
+    sortTag: SortMovie.popularityAsc,
+  },
+  {
+    title: 'По рейтингу (убывание)',
+    sortTag: SortMovie.voteAverageDesc,
+  },
+  {
+    title: 'По рейтингу (возрастание)',
+    sortTag: SortMovie.voteAverageAsc,
+  },
+  {
+    title: 'По дате выпуска (убывание)',
+    sortTag: SortMovie.primaryReleaseDateDesc,
+  },
+  {
+    title: 'По дате выпуска (возрастание)',
+    sortTag: SortMovie.primaryReleaseDateAsc,
+  },
+
+  {
+    title: 'По названию (А-Я)',
+    sortTag: SortMovie.originalTitleAsc,
+  },
+  {
+    title: 'По названию (Я-А)',
+    sortTag: SortMovie.originalTitleDesc,
+  },
+
+]
 
 export const Path = {
   Main: '/',
@@ -12,29 +52,24 @@ export const Path = {
   FilteredMovies: '/filtered-movies',
   Search: '/search',
   Favorites: '/favorites',
-} as const;
+} as const
 
 
-export const pages  = [
-  {title: 'Main', path: Path.Main},
-  {title: 'Category movies', path: Path.CategoryMovies},
-  {title: 'Filtered Movies', path: Path.FilteredMovies},
-  {title: 'Search', path: Path.Search},
-  {title: 'Favorites', path: Path.Favorites},
-] as const;
-
-
-export type PathType = typeof Path;
-
+export const pages = [
+  { title: 'Main', path: Path.Main },
+  { title: 'Category movies', path: Path.CategoryMovies },
+  { title: 'Filtered Movies', path: Path.FilteredMovies },
+  { title: 'Search', path: Path.Search },
+  { title: 'Favorites', path: Path.Favorites },
+] as const
 
 
 export const categoriesPath = {
-  PopularMovies: `popular` ,
+  PopularMovies: `popular`,
   TopRatedMovies: `top_rated`,
   UpcomingMovies: `upcoming`,
   NowPlayingMovies: `now_playing`,
-} as const;
-
+} as const
 
 
 export const popularMovies = { title: 'Popular Movies', path: `/${categoriesPath.PopularMovies}` } as const
@@ -47,10 +82,10 @@ export type CategoriesPath = (typeof categoriesPath)[keyof typeof categoriesPath
 
 
 export const categoryMoviesByPath = {
-[categoriesPath.PopularMovies]: popularMovies,
-[categoriesPath.TopRatedMovies]: topRatedMovies,
-[categoriesPath.UpcomingMovies]: upcomingMovies,
-[categoriesPath.NowPlayingMovies]: nowPlayingMovies,
+  [categoriesPath.PopularMovies]: popularMovies,
+  [categoriesPath.TopRatedMovies]: topRatedMovies,
+  [categoriesPath.UpcomingMovies]: upcomingMovies,
+  [categoriesPath.NowPlayingMovies]: nowPlayingMovies,
 
 
 }
@@ -63,7 +98,7 @@ export const categoriesMovies = [
 
 
 export const RATING_STYLES = {
-  low:    { bg: '#dc2626', color: '#fff' },
+  low: { bg: '#dc2626', color: '#fff' },
   medium: { bg: '#facc15', color: '#111827' },
-  high:   { bg: '#16a34a', color: '#fff' },
-} as const;
+  high: { bg: '#16a34a', color: '#fff' },
+} as const
