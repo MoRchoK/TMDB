@@ -7,13 +7,15 @@ import { CategoryContentSkeleton } from '@/common/components/skeleton/CategoryCo
 import { BasePagination } from '@/common/components/basePagination'
 
 
-export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, moviesData, isLoading }) => {
+export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, moviesData, isLoading, onChangePage }) => {
 
   const isLoadingPage = !moviesData?.results || isLoading
   if (isLoadingPage) return <CategoryContentSkeleton />
 
   const totalPages =moviesData.total_pages
-  const sizePage =moviesData.results.length
+  const page =moviesData.page
+
+
 
 
   return (
@@ -23,7 +25,7 @@ export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, movies
         <MoviesLists moviesData={moviesData.results} />
       </div>
       <div className={s.paginationWrapper}>
-        <BasePagination totalPages={totalPages} sizePage={sizePage} />
+        <BasePagination totalPages={totalPages} page={page} onChange={onChangePage} maxPages={500} />
       </div>
     </>
   )

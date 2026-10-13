@@ -1,7 +1,7 @@
 import s from './moviesListItem.module.css'
 import { type FC, memo } from 'react'
 import type { MoviesListItemType } from './moviesListItem.ts'
-import { RATING_STYLES } from '@/common/constants'
+import { defaultCardImage, RATING_STYLES } from '@/common/constants'
 
 
 
@@ -14,7 +14,7 @@ export const MoviesListItem  = memo(({title, imageUrl, rating}) => {
       <div className={s.cardItemWrapper}>
         <div className={s.cardImageWrapper}>
           <span className={s.ratingCard} style={{backgroundColor: bg, color: color}}>{ratingValue}</span>
-          <img src={imageUrl} alt={'movieCard'} className={s.cardImage} />
+          <img src={imageUrl} alt={defaultCardImage} className={s.cardImage} />
           <div className={s.likeIconWrapper}>
             <svg className={s.likeIcon} width={20} height={20}>
               <use href="/iconsSprites.svg#like" />

@@ -4,14 +4,14 @@ import * as z from "zod";
 
 const baseResultsMovieResponse = z.object({
   adult: z.boolean(),
-  backdrop_path: z.string(),
+  backdrop_path: z.string().nullish(),
   genre_ids: z.array(z.int()),
   id: z.int(),
   original_language: z.string(),
   original_title: z.string(),
   overview: z.string(),
   popularity: z.number(),
-  poster_path: z.string(),
+  poster_path: z.string().nullish(),
   release_date: z.string(),
   title: z.string(),
   video: z.boolean(),

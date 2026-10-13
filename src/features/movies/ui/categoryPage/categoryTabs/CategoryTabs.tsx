@@ -12,7 +12,7 @@ export const CategoryTabs: FC = () => {
   return (
     <nav>
       <ul className={s.tabMenu }>
-        {categoriesMovies.map(({ title, path }, index) => <Link to={`./${path}`}>
+        {categoriesMovies.map(({ title, path }, index) => <Link key={index} to={`./${path}`}>
           <BaseButton title={title} mode={category === path?'accent': "base"} key={index} />
         </Link>)}
       </ul>

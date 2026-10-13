@@ -1,5 +1,6 @@
 export type BasePaginationType = {
   totalPages: number;
-  sizePage?: number;
-
+  page: number;
+  maxPages?: number;
+  onChange?: (page: number)=>void;
 }

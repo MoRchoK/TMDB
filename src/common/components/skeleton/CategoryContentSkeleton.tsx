@@ -8,6 +8,6 @@ export const CategoryContentSkeleton: FC = () => {
     <Box sx={{
       width: `100%`,
     }}>
-      {Array(2).fill(null).map(()=> <MovieCardSkeleton countCard={5} />)}
+      {Array(2).fill(null).map((_value, index)=> <MovieCardSkeleton key={index} countCard={5} />)}
     </Box>)
 }

@@ -1,3 +1,11 @@
+import { getDefaultImage } from '@/common/utils/getDefaultImage.ts'
+
+
+export const defaultBannerImage = getDefaultImage({width: 1200 , height: 720})
+export const defaultCardImage = getDefaultImage({width: 360 , height: 720})
+
+
+
 export const Path = {
   Main: '/',
   CategoryMovies: '/movies',

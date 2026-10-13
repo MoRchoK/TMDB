@@ -70,8 +70,8 @@ export const MovieCardSkeleton: FC<MovieCardSkeletonType> = ({countCard = 5}) =>
 
   return (
     <Box sx={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '24px', padding: '64px 0' }}>
-      {Array(countCard).fill(null).map(() => (
-        <div style={{ width: '100%' }}>
+      {Array(countCard).fill(null).map((_value, index) => (
+        <div style={{ width: '100%' }} key={index}>
           {/* постер */}
           <Skeleton
             variant="rectangular"

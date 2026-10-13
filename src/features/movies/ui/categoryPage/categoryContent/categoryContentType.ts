@@ -4,4 +4,5 @@ export type CategoryContentType = {
   categoryTitle: string;
   moviesData: baseMovieResponseType  | undefined;
   isLoading: boolean
+  onChangePage?: (page: number) => void
 }

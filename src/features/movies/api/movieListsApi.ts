@@ -19,6 +19,7 @@ const movieListApi = baseApi.injectEndpoints({
         url: '/3/movie/top_rated',
         params
       }),
+      providesTags: ['PopularMovies'],
       responseSchema: baseMovieResponse,
     }),
 

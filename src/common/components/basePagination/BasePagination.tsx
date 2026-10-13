@@ -1,29 +1,39 @@
 import { Pagination } from '@mui/material'
-import { type ChangeEvent, type FC, useState } from 'react'
+import { type ChangeEvent, type FC } from 'react'
 import type { BasePaginationType } from '@/common/components/basePagination/basePaginationType.ts'
 
 
-export const BasePagination: FC<BasePaginationType> = ({totalPages, sizePage = 20}) => {
+export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onChange, maxPages }) => {
 
-  const [page, setPage] = useState(0)
+  if (totalPages <= 1) return null
 
-  const [siblingCount, setSiblingCount] = useState(0)
+  let countPages: number = totalPages
+  let siblingCount
+
+  if(maxPages && totalPages <= countPages){
+    countPages =  maxPages
+  }
+
+  if ((countPages > 2 && page < 3 )|| (countPages < page + 2)) {
+    siblingCount = 0
+  } else {
+    siblingCount = 1
+  }
+
+
 
   const paginationChangeHandler = (_event: ChangeEvent<unknown, Element>, value: number) => {
-    if (value > 2 && page < 1 && value < totalPages - 1) {
-      setPage(1)
-      setSiblingCount(1)
-    }
-    if ((value <= 2 || value > totalPages - 1) && page > 0) {
-      setPage(0)
-      setSiblingCount(0)
+    if (onChange) {
+      onChange(value)
     }
   }
-  if (totalPages<sizePage) return null
+
+
+
 
   return (
     <Pagination
-      count={totalPages}
+      count={countPages}
       sx={{
         '& .MuiPaginationItem-root.Mui-selected': {
           backgroundColor: '#2563eb',
@@ -37,7 +47,7 @@ export const BasePagination: FC<BasePaginationType> = ({totalPages, sizePage = 2
         },
       }}
       hidePrevButton
-      defaultPage={1}
+      page={page}
       hideNextButton
       variant="outlined"
       shape="rounded"
