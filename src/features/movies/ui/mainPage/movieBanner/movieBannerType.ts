@@ -1,4 +1,4 @@
 export type MovieBannerType = {
-  urlImage: string
+  urlImage?: string
 }
 

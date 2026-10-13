@@ -30,6 +30,7 @@ export const getPopularMoviesParams = z.object({
   language: z.string().optional(),
   page: z.int32().optional(),
   region: z.string().optional(),
+  category: z.string()
 })
 
 

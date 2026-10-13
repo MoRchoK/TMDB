@@ -9,7 +9,7 @@ export const CategoryPage: FC = () => {
   return (
     <div className={s.categoryPageContainer}>
       <CategoryTabs />
-      <Outlet/>
+      <Outlet />
     </div>
   )
 }

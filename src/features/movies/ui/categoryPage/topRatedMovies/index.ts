@@ -1,1 +1,0 @@
-export {TopRatedMovies} from './TopRatedMovies';

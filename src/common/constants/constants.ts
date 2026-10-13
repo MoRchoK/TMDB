@@ -26,21 +26,34 @@ export const pages  = [
 
 export type PathType = typeof Path;
 
-export const popularMovies = { title: 'Popular Movies', path: '/popular' } as const
-export const topRatedMovies = { title: 'Top Rated Movies', path: '/top-rated' } as const
-export const upcomingMovies = { title: 'Upcoming Movies', path: '/upcoming' } as const
-export const nowPlayingMovies = { title: 'Now Playing Movies', path: '/now-playing' } as const
 
 
 export const categoriesPath = {
-  PopularMovies: `${Path.CategoryMovies}${popularMovies.path}`,
-  TopRatedMovies: `${Path.CategoryMovies}${topRatedMovies.path}`,
-  UpcomingMovies: `${Path.CategoryMovies}${upcomingMovies.path}`,
-  NowPlayingMovies: `${Path.CategoryMovies}${nowPlayingMovies.path}`,
+  PopularMovies: `popular` ,
+  TopRatedMovies: `top_rated`,
+  UpcomingMovies: `upcoming`,
+  NowPlayingMovies: `now_playing`,
 } as const;
+
+
+
+export const popularMovies = { title: 'Popular Movies', path: `/${categoriesPath.PopularMovies}` } as const
+export const topRatedMovies = { title: 'Top Rated Movies', path: `/${categoriesPath.TopRatedMovies}` } as const
+export const upcomingMovies = { title: 'Upcoming Movies', path: `/${categoriesPath.UpcomingMovies}` } as const
+export const nowPlayingMovies = { title: 'Now Playing Movies', path: `/${categoriesPath.NowPlayingMovies}` } as const
+
 
 export type CategoriesPath = (typeof categoriesPath)[keyof typeof categoriesPath]
 
+
+export const categoryMoviesByPath = {
+[categoriesPath.PopularMovies]: popularMovies,
+[categoriesPath.TopRatedMovies]: topRatedMovies,
+[categoriesPath.UpcomingMovies]: upcomingMovies,
+[categoriesPath.NowPlayingMovies]: nowPlayingMovies,
+
+
+}
 
 export const categoriesMovies = [
   popularMovies,

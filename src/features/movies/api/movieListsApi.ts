@@ -7,44 +7,19 @@ import {
 
 const movieListApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getPopularMovies: build.query({
-      query: (params: getPopularMoviesParamsType) => ({
-        url: '/3/movie/popular',
-        params
-      }),
-      responseSchema: baseMovieResponse,
-    }),
-    getTopRatedMovies: build.query({
-      query: (params: getPopularMoviesParamsType) => ({
-        url: '/3/movie/top_rated',
-        params
-      }),
-      providesTags: ['PopularMovies'],
-      responseSchema: baseMovieResponse,
-    }),
-
-    getUpcomingMovies: build.query({
-      query: (params: getPopularMoviesParamsType) => ({
-        url: '/3/movie/upcoming',
+    getCategoryMovies: build.query({
+      query: ({category,  ...params }: getPopularMoviesParamsType) => ({
+        url: `/3/movie/${category}`,
         params
       }),
       responseSchema: baseMovieResponse,
     }),
 
-    getNowPlayingMovies: build.query({
-      query: (params: getPopularMoviesParamsType) => ({
-        url: '/3/movie/now_playing',
-        params
-      }),
-      responseSchema: baseMovieResponse,
-    }),
+
   }),
 })
 
 
 
 export const {
-  useGetPopularMoviesQuery,
-  useGetTopRatedMoviesQuery,
-  useGetNowPlayingMoviesQuery,
-  useGetUpcomingMoviesQuery} = movieListApi
+  useGetCategoryMoviesQuery} = movieListApi

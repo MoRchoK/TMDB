@@ -1,25 +1,21 @@
 import { MovieCard } from '@/features/movies/ui/movieCard/MovieCard.tsx'
 import { MovieBanner } from '@/features/movies/ui/mainPage/movieBanner'
 import s from './mainPage.module.css'
-import {
-  useGetNowPlayingMoviesQuery,
-  useGetPopularMoviesQuery,
-  useGetTopRatedMoviesQuery,
-  useGetUpcomingMoviesQuery,
-} from '@/features/movies/api/movieListsApi.ts'
 import { useBannerImage } from '@/common/hooks/useBannerImage.ts'
 import { getUrlBannerImage } from '@/common/utils/getUrlBannerImage.ts'
 import type { baseResultsMovieResponseType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
 import { memo, useCallback, useMemo } from 'react'
 import { categoriesPath, Path } from '@/common/constants'
 import { MovieBannerSkeleton, MovieMainPageSkeleton } from '@/common/components/skeleton/MovieMainPageSkeleton.tsx'
+import { useGetCategoryMoviesQuery } from '@/features/movies/api/movieListsApi.ts'
 
 
 export const MainPage = memo(() => {
-  const { data: popularMovies, isLoading: isPopularMovies } = useGetPopularMoviesQuery({})
-  const { data: topRatedMovies, isLoading: isTopRatedMovies } = useGetTopRatedMoviesQuery({})
-  const { data: upcomingMovies, isLoading: isUpcomingMovies } = useGetUpcomingMoviesQuery({})
-  const { data: nowPlayingMovies, isLoading: isNowPlayingMovies } = useGetNowPlayingMoviesQuery({})
+  const { data: popularMovies, isLoading: isPopularMovies } =  useGetCategoryMoviesQuery({ category: categoriesPath.PopularMovies })
+  const { data: topRatedMovies, isLoading: isTopRatedMovies } =  useGetCategoryMoviesQuery({ category: categoriesPath.TopRatedMovies })
+  const { data: upcomingMovies, isLoading: isUpcomingMovies } =  useGetCategoryMoviesQuery({ category:categoriesPath.UpcomingMovies })
+  const { data: nowPlayingMovies, isLoading: isNowPlayingMovies } =  useGetCategoryMoviesQuery({ category:categoriesPath.NowPlayingMovies})
+
   const bannerImage = useBannerImage(popularMovies?.results || [])
 
 
@@ -42,7 +38,7 @@ export const MainPage = memo(() => {
   if (isLoadingCards) return <MovieMainPageSkeleton />
   return (
     <section >
-      {!bannerImage.length ? <MovieBannerSkeleton /> :
+      {!bannerImage?.length ? <MovieBannerSkeleton /> :
         <>
           <MovieBanner urlImage={getUrlBannerImage(bannerImage)} />
           <div className={s.mainContentWrapper}>

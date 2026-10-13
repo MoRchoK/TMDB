@@ -1,1 +1,0 @@
-export {NowPlayingMovies} from './NowPlayingMovies.tsx'
