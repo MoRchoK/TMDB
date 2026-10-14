@@ -11,27 +11,27 @@ export const defaultCardImage = getDefaultImage({ width: 360, height: 720 })
 
 export const sortMoviesParams: sortMoviesParamsType[] = [
   {
-    title: 'По популярности (убывание)',
+    title: 'По популярности 🠓',
     sortTag: SortMovie.popularityDesc,
   },
   {
-    title: 'По популярности (возрастание)',
+    title: 'По популярности 🠑',
     sortTag: SortMovie.popularityAsc,
   },
   {
-    title: 'По рейтингу (убывание)',
+    title: 'По рейтингу 🠓',
     sortTag: SortMovie.voteAverageDesc,
   },
   {
-    title: 'По рейтингу (возрастание)',
+    title: 'По рейтингу 🠑',
     sortTag: SortMovie.voteAverageAsc,
   },
   {
-    title: 'По дате выпуска (убывание)',
+    title: 'По дате выпуска 🠓',
     sortTag: SortMovie.primaryReleaseDateDesc,
   },
   {
-    title: 'По дате выпуска (возрастание)',
+    title: 'По дате выпуска 🠑',
     sortTag: SortMovie.primaryReleaseDateAsc,
   },
 

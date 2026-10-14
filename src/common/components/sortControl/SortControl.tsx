@@ -26,6 +26,7 @@ export const SortControl: FC<SortControlType > = ({optionsData , value , onChang
           onChange={handleChange}
           sx={{
             height: 38,
+            fontSize: 14,
             '& .MuiOutlinedInput-notchedOutline': {
               border: ' 1px solid #d1d5db'
             },
