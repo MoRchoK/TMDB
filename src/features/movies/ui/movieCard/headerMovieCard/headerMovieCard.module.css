@@ -3,5 +3,11 @@
     flex-direction: row;
     justify-content: space-between;
     height: 35px;
+
+    button {
+        &:hover {
+            background-color: #f3f4f6;
+        }
+    }
 }
 

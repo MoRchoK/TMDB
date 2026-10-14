@@ -43,7 +43,11 @@ export const MainPage = memo(() => {
           <MovieBanner urlImage={getUrlBannerImage(bannerImage)} />
           <div className={s.mainContentWrapper}>
             {resultMovieData.map(({ movies, categoryTitle, path }, index) => (
-              <MovieCard countCard={6} moviesData={movies} categoryTitle={categoryTitle} key={index} redirectPath={`${Path.CategoryMovies}${path}`} />
+              <MovieCard countCard={6}
+                         moviesData={movies}
+                         categoryTitle={categoryTitle}
+                         key={index}
+                         redirectPath={`${Path.CategoryMovies}${path}`} />
             ))}
           </div>
         </>

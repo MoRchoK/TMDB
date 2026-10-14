@@ -1,27 +1,29 @@
+
+
+
+
 .baseButton{
-    padding: 6px 12px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease;
     border-radius: 999px;
     font-weight: 600;
     height: 100%;
-    border: 1px solid #d1d5db;
     color: #1f2937;
     font-size: 14px;
-    &:hover{
-        background-color: #f3f4f6;
-
-    }
+    border: 1px solid #d1d5db;
 }
-
 
 .accentButton{
+    border: none;
     color: white;
     background-color: #2563eb;
-    padding: 8px 16px;
-    font-size: 14px;
     transition: background-color .2s ease, color .2s ease, border-color .2s ease, opacity .2s ease;
-    border-radius: 999px;
-    font-weight: 600;
-    height: 100%;
+
+
 }
+
+
 

@@ -9,7 +9,8 @@ export const HeaderMovieCard: FC<HeaderMovieCardType> = memo(({ categoryTitle, b
   return (
     <div className={s.titleCardWrapper}>
       <TitleMovieList title={categoryTitle} />
-      <BaseButton title={buttonTitle} mode={'base'} redirectPath={redirectPath} />
+      <BaseButton title={buttonTitle}
+                  redirectPath={redirectPath} />
     </div>
   )
 })

@@ -1,27 +1,26 @@
 import { Slider } from '@mui/material'
 import s from './ratingRange.module.css'
-import { type FC, type SetStateAction, useState } from 'react'
+import { type FC } from 'react'
+import type { RatingRangeType } from '@/common/components/RatingRange/ratingRangeType.ts'
 
 
-export const RatingRange: FC = () => {
+export const RatingRange: FC<RatingRangeType> = ({minValue, maxValue, onChange, limit }) => {
+  const arrValue = [minValue, maxValue]
 
-  const [value, setValue] = useState([0, 10])
-
-  const sliderHandleChange = (_event: Event, newValue: SetStateAction<number[]>) => {
-    setValue(newValue)
+  const sliderHandleChange = (_event: Event, newValue:number[]) => {
+    onChange({ minValue: newValue[0], maxValue: newValue[1] })
   }
 
   return (
     <div>
       <div className={s.ratingLabel}>
         <span>Rating</span>
-        <span>{`${value[0]} - ${value[1]}`}</span>
+        <span>{`${minValue} - ${maxValue}`}</span>
       </div>
       <Slider
         sx={{
           left: 5,
           maxWidth: '190px',
-
           '& .MuiSlider-thumb': {
             boxShadow: 'none',
             '&:hover, &.Mui-focusVisible, &.Mui-active': { boxShadow: 'none' },
@@ -30,9 +29,9 @@ export const RatingRange: FC = () => {
           '& .MuiSlider-rail':  { boxShadow: 'none' },
         }}
         disableSwap
-        max={10}
+        max={limit}
         step={0.1}
-        value={value}
+        value={arrValue}
         onChange={sliderHandleChange}
       />
     </div>

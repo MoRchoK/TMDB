@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router'
 
 
 
-export const BaseButton: FC<ButtonType> = ({title, mode, redirectPath, type = 'button', onClick}) => {
+export const BaseButton: FC<ButtonType> = ({title, accentBtn, redirectPath, type = 'button', onClick}) => {
   const redirect = useNavigate()
 
 
@@ -16,7 +16,7 @@ export const BaseButton: FC<ButtonType> = ({title, mode, redirectPath, type = 'b
   }
 
   return (
-    <button  onClick={onClickHandler} type={type} className={`${mode === 'base'? s.baseButton: s.accentButton}`}  >
+    <button  onClick={onClickHandler} type={type} className={`${s.baseButton} ${accentBtn && s.accentButton}`}  >
       {title}
     </button>
   )

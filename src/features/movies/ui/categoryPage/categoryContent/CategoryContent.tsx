@@ -10,7 +10,9 @@ import { BasePagination } from '@/common/components/basePagination'
 export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, moviesData, isLoading, onChangePage, isFetching }) => {
   const isLoadingPage = !moviesData?.results || isLoading
   if (isLoadingPage) return <CategoryContentSkeleton />
-  const totalPages =moviesData.total_pages
+
+
+  const totalPages = moviesData.total_pages
   const page =moviesData.page
 
 
@@ -24,7 +26,8 @@ export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, movies
         <BasePagination disabled={isFetching}
                         totalPages={totalPages}
                         page={page}
-                        onChange={onChangePage} maxPages={500} />
+                        onChange={onChangePage}
+                        maxPages={500} />
       </div>
     </>
   )

@@ -26,14 +26,27 @@ export const baseMovieResponse = z.object({
   total_results: z.int(),
 })
 
+const genre = z.object({
+  id: z.int().nonnegative(),
+  name: z.string(),})
+
+
+export const genreMovieResponse = z.object({
+  genres: z.array(genre),
+})
+
+
+export const genreMovieParams = z.object({
+  language: z.string().optional(),
+})
+
+
 export const getPopularMoviesParams = z.object({
   language: z.string().optional(),
   page: z.int32().optional(),
   region: z.string().optional(),
   category: z.string(),
 })
-
-
 
 
 export const discoverMoviesParams = z.object({
@@ -53,6 +66,7 @@ export const discoverMoviesParams = z.object({
   sort_by: z.enum(SortMovie).optional(),
   vote_average: z.float32().optional(),
   ['vote_average.lte']: z.float32().optional(),
+  ['vote_average.gte']: z.float32().optional(),
   ['vote_count.gte']: z.float32().optional(),
   ['vote_count.lte']: z.float32().optional(),
   watch_region: z.string().optional(),
@@ -76,9 +90,10 @@ export const discoverMoviesParams = z.object({
 })
 
 
-
-
 export type baseMovieResponseType = z.infer<typeof baseMovieResponse>;
 export type discoverMoviesParamsType = z.infer<typeof discoverMoviesParams>;
 export type baseResultsMovieResponseType = z.infer<typeof baseResultsMovieResponse>;
 export type getPopularMoviesParamsType = z.infer<typeof getPopularMoviesParams>;
+export type genreMovieResponseType = z.infer<typeof genreMovieResponse>;
+export type genreMovieParamsType = z.infer<typeof genreMovieParams>;
+export type genreType = z.infer<typeof genre>;

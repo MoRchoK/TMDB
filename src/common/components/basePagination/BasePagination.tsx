@@ -10,7 +10,7 @@ export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onCha
   let countPages: number = totalPages
   let siblingCount
 
-  if(maxPages && totalPages <= countPages){
+  if(maxPages && totalPages >= maxPages){
     countPages =  maxPages
   }
 
@@ -26,9 +26,6 @@ export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onCha
     }
   }
 
-
-
-
   return (
     <Pagination
       count={countPages}
@@ -36,6 +33,10 @@ export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onCha
         '& .MuiPaginationItem-root.Mui-selected': {
           backgroundColor: '#2563eb',
           color: 'white',
+        },
+        '& .MuiPaginationItem-root.Mui-selected:hover': {
+          backgroundColor: '#2563eb',
+
         },
         '& .MuiPaginationItem-root:hover': {
           borderColor: '#2563eb',

@@ -1,1 +1,2 @@
-export {FormTags} from './formTags';
+export {FormTags} from './FormTags.tsx';
+export * from './formTags.ts';

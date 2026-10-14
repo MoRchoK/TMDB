@@ -1,6 +1,9 @@
 import { baseApi } from '@/app/baseApi.ts'
 import {
-  baseMovieResponse, type discoverMoviesParamsType,
+  baseMovieResponse,
+  type discoverMoviesParamsType,
+  type genreMovieParamsType,
+  genreMovieResponse,
   type getPopularMoviesParamsType,
 } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
 
@@ -9,7 +12,7 @@ const movieListApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getCategoryMovies: build.query({
       query: ({ category, ...params }: getPopularMoviesParamsType) => ({
-        url: `/3/movie/${category}`,
+        url: `/movie/${category}`,
         params,
       }),
       responseSchema: baseMovieResponse,
@@ -17,13 +20,19 @@ const movieListApi = baseApi.injectEndpoints({
 
     getDiscoverMovies: build.query({
       query: (params: discoverMoviesParamsType) => ({
-        url: `/3/discover/movie`,
+        url: `/discover/movie`,
         params,
       }),
       responseSchema: baseMovieResponse,
     }),
 
-
+    getGenreMovies: build.query({
+      query: (params: genreMovieParamsType) => ({
+        url: `/genre/movie/list`,
+        params
+      }),
+      responseSchema: genreMovieResponse,
+    }),
   }),
 })
 
@@ -31,4 +40,5 @@ const movieListApi = baseApi.injectEndpoints({
 export const {
   useGetCategoryMoviesQuery,
   useGetDiscoverMoviesQuery,
+  useGetGenreMoviesQuery
 } = movieListApi

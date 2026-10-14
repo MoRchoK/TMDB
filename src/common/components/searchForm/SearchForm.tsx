@@ -29,9 +29,9 @@ export const SearchForm: FC = () => {
 
   return (
     <div className={s.searchWrapper}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit) }>
         <BaseInput  {...register('search')} />
-        <BaseButton title={'Search'} mode={'accent'} type={'submit'} />
+        <BaseButton title={'Search'} accentBtn={true} type={'submit'} />
       </form>
     </div>
 

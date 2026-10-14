@@ -7,6 +7,9 @@ export const CategoryContentSkeleton: FC = () => {
   return (
     <Box sx={{
       width: `100%`,
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '24px'
     }}>
       {Array(2).fill(null).map((_value, index)=> <MovieCardSkeleton key={index} countCard={5} />)}
     </Box>)

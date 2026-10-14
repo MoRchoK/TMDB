@@ -1,23 +1,23 @@
 import type { FC } from 'react'
 import { BaseButton } from '@/common/components/button/baseButton'
 import s from './formTags.module.css'
+import type { FormTagsType } from './formTags.ts'
 
 
+export const FormTags: FC<FormTagsType> = ({ genres, activeGenresId, formTagsHandler }) => {
 
-
-export const FormTags: FC = () => {
+  const bntHandler = (id: number) => {
+    formTagsHandler(id)
+  }
 
   return (
-    <>
-      <div className={s.tagsWrapper}>
-        <BaseButton title={'Action'} mode={'accent'} />
-        <BaseButton title={'Crime'} mode={'base'} />
-        <BaseButton title={'Documentary'} mode={'base'} />
-        <BaseButton title={'Family'} mode={'accent'} />
-      </div>
-      <div className={s.resetBtnWrapper}>
-        <BaseButton title={'Reset filters'} mode={'accent'} />
-      </div>
-    </>
+    <div className={s.tagsWrapper}>
+      {genres.map((genre) => <BaseButton
+        onClick={() => bntHandler(genre.id)}
+        title={genre.name}
+        accentBtn={activeGenresId.includes(genre.id)}
+        key={genre.id} />)}
+    </div>
+
   )
 }

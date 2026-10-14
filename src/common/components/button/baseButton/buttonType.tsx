@@ -1,7 +1,7 @@
 
 export type ButtonType = {
   title: string,
-  mode: 'accent' | 'base'
+  accentBtn?: boolean
   type?: 'submit' | 'reset' | 'button'
   redirectPath?: string
   onClick?: () => void

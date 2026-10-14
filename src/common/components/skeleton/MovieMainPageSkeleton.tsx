@@ -63,13 +63,13 @@ export const MovieBannerSkeleton: FC = () => {
 
 type MovieCardSkeletonType = {
   countCard?: number
+  heightCard?: string
 
 }
-export const MovieCardSkeleton: FC<MovieCardSkeletonType> = ({countCard = 5}) => {
-
+export const MovieCardSkeleton: FC<MovieCardSkeletonType> = ({ countCard = 5, heightCard = '300px' }) => {
 
   return (
-    <Box sx={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '24px', padding: '64px 0' }}>
+    <Box sx={{ maxWidth: '1200px', width: '100%', margin: '0 auto', display: 'flex', gap: '24px' }}>
       {Array(countCard).fill(null).map((_value, index) => (
         <div style={{ width: '100%' }} key={index}>
           {/* постер */}
@@ -78,7 +78,7 @@ export const MovieCardSkeleton: FC<MovieCardSkeletonType> = ({countCard = 5}) =>
             animation="wave"
             sx={{
               width: '100%',
-              height: '330px',
+              height: heightCard,
               borderRadius: '12px',
             }}
           />
@@ -104,7 +104,13 @@ export const MovieMainPageSkeleton: FC = () => {
       {/* баннер */}
       <MovieBannerSkeleton />
       {/* фильмы */}
-      <MovieCardSkeleton />
+      <Box sx={{
+        pt: 5,
+        pb: 5,
+      }}>
+        <MovieCardSkeleton />
+      </Box>
+
     </section>
   )
 }
