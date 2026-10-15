@@ -7,17 +7,24 @@ import { CategoryContentSkeleton } from '@/common/components/skeleton/CategoryCo
 import { BasePagination } from '@/common/components/basePagination'
 
 
-export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle, moviesData, isLoading, onChangePage, isFetching }) => {
-  const isLoadingPage = !moviesData?.results || isLoading
-  if (isLoadingPage) return <CategoryContentSkeleton />
+export const CategoryContent: FC<CategoryContentType> = ({ categoryTitle,
+                                                           moviesData,
+                                                           isLoading,
+                                                           onChangePage,
+                                                           isFetching }) => {
+
+
+  if (isLoading) return <CategoryContentSkeleton />
+  if(!moviesData?.results) return <span>Movies is not found</span>
+
   const totalPages = moviesData.total_pages
-  const page =moviesData.page
+  const page = moviesData.page
 
 
   return (
     <>
       <div className={s.categoryContent}>
-        {categoryTitle && <TitleMovieList title={categoryTitle} />}
+        {categoryTitle && categoryTitle!=='null' && <TitleMovieList title={categoryTitle} />}
         <MoviesLists moviesData={moviesData.results} />
       </div>
       <div className={s.paginationWrapper}>

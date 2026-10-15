@@ -1,12 +1,28 @@
+import type { FC, InputEventHandler } from 'react'
+import type { TextFieldProps } from '@mui/material/TextField'
+import TextField from '@mui/material/TextField'
 
-import type { FC } from 'react'
-import TextField from '@mui/material/TextField';
-import type { TextFieldProps } from '@mui/material/TextField';
 
-export const BaseInput: FC<TextFieldProps> = (props) => {
+type BaseInput = TextFieldProps & {
+  resetValue?: () => void
+}
+
+export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) => {
+
+
+  const onInputHandler: InputEventHandler<HTMLDivElement> = (e) => {
+    const value = (e.target as HTMLInputElement).value
+    if (!resetValue || value.length) return null
+    resetValue()
+  }
+
 
   return (
     <TextField id="outlined-basic" variant="outlined"
+               type={'search'}
+
+               onInput={onInputHandler}
+               defaultValue={defaultValue}
                sx={{
                  maxWidth: '465px',
                  minWidth: '240px',
@@ -23,9 +39,8 @@ export const BaseInput: FC<TextFieldProps> = (props) => {
                  '& .MuiInputBase-root.Mui-focused': {
                    outlineOffset: '2px',
                    outline: '3px solid #2563eb',
-                   border: '1px solid #d1d5db'
-                 }
-
+                   border: '1px solid #d1d5db',
+                 },
                }} placeholder={'Search for a movie'}  {...props} />
   )
 }

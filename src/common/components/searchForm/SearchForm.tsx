@@ -5,6 +5,7 @@ import { Path } from '@/common/constants'
 import { type SubmitHandler, useForm } from 'react-hook-form'
 import { BaseButton } from '@/common/components/button/baseButton'
 import { BaseInput } from '@/common/components/searchForm/baseInput'
+import type { SearchFormType } from '@/common/components/searchForm/searchFormType.ts'
 
 
 type Inputs = {
@@ -12,7 +13,7 @@ type Inputs = {
 }
 
 
-export const SearchForm: FC = () => {
+export const SearchForm: FC<SearchFormType> = ({ defaultSearchValue, resetSearchHandler }) => {
   const navigate = useNavigate()
   const {
     register,
@@ -21,17 +22,20 @@ export const SearchForm: FC = () => {
 
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    navigate({
-      pathname: Path.Search,
-      search: `?query=${data.search}`,
-    })
+    navigate(`${Path.Search}/${data.search}`)
   }
 
   return (
     <div className={s.searchWrapper}>
-      <form onSubmit={handleSubmit(onSubmit) }>
-        <BaseInput  {...register('search')} />
-        <BaseButton title={'Search'} accentBtn={true} type={'submit'} />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <BaseInput  {...register('search')}
+                    resetValue={resetSearchHandler}
+                    defaultValue={defaultSearchValue} />
+
+        <BaseButton title={'Search'}
+                    accentBtn={true}
+                    type={'submit'}
+        />
       </form>
     </div>
 

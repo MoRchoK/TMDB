@@ -24,7 +24,11 @@ export const router = createBrowserRouter([
         ],
       },
       { path: Path.FilteredMovies, Component: FilteredMoviesPage },
-      { path: Path.Search, Component: SearchPage },
+      { path: Path.Search,
+        Component: SearchPage,
+        children:[
+          { path: ':search', Component: CategoryMovies },
+        ] },
       { path: Path.Favorites, Component: FavoritesPage },
     ],
 

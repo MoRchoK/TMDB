@@ -89,7 +89,18 @@ export const discoverMoviesParams = z.object({
   year: z.int32().optional(),
 })
 
+export const searchMovieParams = z.object({
+  query: z.string(),
+  include_adult: z.boolean().optional(),
+  language: z.string().optional(),
+  primary_release_year: z.string().optional(),
+  page: z.int32().optional(),
+  region: z.string().optional(),
+  year: z.string().optional(),
+})
 
+
+export type searchMovieParamsType = z.infer<typeof searchMovieParams>;
 export type baseMovieResponseType = z.infer<typeof baseMovieResponse>;
 export type discoverMoviesParamsType = z.infer<typeof discoverMoviesParams>;
 export type baseResultsMovieResponseType = z.infer<typeof baseResultsMovieResponse>;
