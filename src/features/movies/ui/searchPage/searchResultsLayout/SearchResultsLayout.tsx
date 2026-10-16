@@ -1,7 +1,7 @@
 import s from './searchResultsLayout.module.css'
 import type { FC } from 'react'
 import { RenderContent } from '@/features/movies/ui/searchPage/searchMovies/renderContent'
-import type { SearchResultsLayoutType } from '@/features/movies/ui/searchResultsLayout/searchResultsLayoutType.ts'
+import type { SearchResultsLayoutType } from '@/features/movies/ui/searchPage/searchResultsLayout/searchResultsLayoutType.ts'
 
 
 

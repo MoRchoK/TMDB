@@ -1,6 +1,6 @@
 import {type FC} from 'react'
 import {SearchForm} from '@/common/components/searchForm'
-import {SearchResultsLayout} from '../searchResultsLayout'
+import {SearchResultsLayout} from './searchResultsLayout'
 import {useGetSearchMoviesQuery} from '@/features/movies/api/movieListsApi.ts'
 import {Outlet, useNavigate, useParams} from 'react-router'
 import {Path} from '@/common/constants'

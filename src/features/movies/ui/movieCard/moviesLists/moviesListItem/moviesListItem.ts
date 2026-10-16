@@ -3,4 +3,5 @@ export type MoviesListItemType = {
   imageUrl: string;
   rating: number;
   onLikeHandler: ()=>void;
+  isLiked: boolean;
 }

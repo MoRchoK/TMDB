@@ -17,7 +17,8 @@ export const CategoryContent: FC<CategoryContentType> = ({
                                                            isFetching,
                                                          }) => {
 
-  if (isLoading || !page || !totalPages) return <CategoryContentSkeleton />
+
+  if (isLoading || !page || !totalPages ) return <CategoryContentSkeleton />
   if (!moviesData) return <span>Movies is not found</span>
 
 

@@ -6,7 +6,9 @@ import { SortMovie, type sortMoviesParamsType } from '@/features/movies/api'
 export const defaultBannerImage = getDefaultImage({ width: 1200, height: 720 })
 export const defaultCardImage = getDefaultImage({ width: 360, height: 720 })
 
-
+export const localStorageKeys = {
+  favoritesMovies: 'favoritesMovies',
+} as const
 
 
 export const sortMoviesParams: sortMoviesParamsType[] = [

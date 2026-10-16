@@ -44,6 +44,7 @@
 .likeIcon {
     fill: #ffffffd9;
     cursor: pointer;
+    transition: all .3s ease
 }
 
 .likeIconWrapper {
@@ -67,8 +68,15 @@
     &:hover .likeIcon {
         fill: white;
     }
+    &:hover .liked {
+        fill: #facc15;
+    }
 }
 
+.liked{
+    fill: #facc15;
+    transition: all .3s ease
+}
 
 .cardImage {
     width: 100%;
