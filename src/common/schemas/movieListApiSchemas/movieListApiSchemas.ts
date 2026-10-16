@@ -19,6 +19,8 @@ const baseResultsMovieResponse = z.object({
   vote_count: z.int(),
 })
 
+
+
 export const baseMovieResponse = z.object({
   page: z.int(),
   results: z.array(baseResultsMovieResponse),
@@ -28,7 +30,8 @@ export const baseMovieResponse = z.object({
 
 const genre = z.object({
   id: z.int().nonnegative(),
-  name: z.string(),})
+  name: z.string(),
+})
 
 
 export const genreMovieResponse = z.object({
@@ -88,7 +91,6 @@ export const discoverMoviesParams = z.object({
   without_watch_providers: z.string().optional(),
   year: z.int32().optional(),
 })
-
 export const searchMovieParams = z.object({
   query: z.string(),
   include_adult: z.boolean().optional(),
@@ -98,8 +100,72 @@ export const searchMovieParams = z.object({
   region: z.string().optional(),
   year: z.string().optional(),
 })
+export const detailsMovieParams = z.object({
+  movie_id: z.int32(),
+  append_to_response: z.string().optional(),
+  language: z.string().optional(),
+})
+
+export const detailsMovieResponse = z.object({
+  adult: z.boolean(),
+  backdrop_path: z.string(),
+  belongs_to_collection: z.object({
+    id: z.int(),
+    name: z.string(),
+    poster_path: z.string().optional(),
+    backdrop_path: z.string().optional(),
+  }),
+  budget: z.int(),
+  genres: z.array(genre),
+  homepage: z.string().optional(),
+  id: z.int(),
+  imdb_i: z.string(),
+  origin_country: z.array(z.string()),
+  original_language: z.string(),
+  original_title: z.string(),
+  overview: z.string(),
+  popularity: z.number(),
+  poster_path: z.string().optional(),
+  production_companies: z.array(z.object({
+    id: z.int(),
+    logo_path: z.string().optional(),
+    name: z.string(),
+    origin_country: z.string(),
+  })),
+
+  production_countries: z.array(z.object({
+    iso_3166_1: z.string(),
+    name: z.string(),
+  })),
+  release_date: z.string(),
+  revenue: z.int(),
+  runtime: z.int(),
+  spoken_languages: z.array(z.object({
+    english_name: z.string(),
+    iso_639_1: z.string(),
+    name: z.string(),
+  })),
+  status: z.string(),
+  tagline: z.string(),
+  title: z.string(),
+  video: z.boolean(),
+  vote_average: z.number(),
+  vote_count: z.int(),
+})
+
+export const moviesData = z.object({
+  id: z.int(),
+  title: z.string(),
+  vote_average: z.number(),
+  poster_path: z.string().nullish(),
+  backdrop_path: z.string().nullish(),
+
+})
 
 
+export type moviesDataType = z.infer<typeof moviesData>;
+export type detailsMovieResponseType = z.infer<typeof detailsMovieResponse>;
+export type detailsMovieParamsType = z.infer<typeof detailsMovieParams>;
 export type searchMovieParamsType = z.infer<typeof searchMovieParams>;
 export type baseMovieResponseType = z.infer<typeof baseMovieResponse>;
 export type discoverMoviesParamsType = z.infer<typeof discoverMoviesParams>;

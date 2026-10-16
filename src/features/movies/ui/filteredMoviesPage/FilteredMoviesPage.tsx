@@ -7,6 +7,7 @@ import { SortMovie, type SortMovieType } from '@/features/movies/api'
 import { FilteredMoviesSkeleton } from '@/common/components/skeleton/FilteredMoviesSkeleton.tsx'
 import { useDebounceValue } from '@/common/hooks/useDebounceValue.ts'
 import { FiltersPanel } from '@/features/movies/ui/filteredMoviesPage/filtersPanel'
+import { getCategoryMoviesData } from '@/common/utils/getCategoryMoviesData.ts'
 
 
 export const FilteredMoviesPage: FC = () => {
@@ -23,12 +24,11 @@ export const FilteredMoviesPage: FC = () => {
     with_genres: activeGenresId.join(),
   })
   const { data: genreMovies, isLoading: isLoadingGenreMovies } = useGetGenreMoviesQuery({})
+  const resultDiscoverMovies = getCategoryMoviesData(discoverMovies?.results)
 
-
-  useEffect(() => {
-    onChangePage(1)
-  }, [sortBy, onChangePage, voteAverage, activeGenresId])
-
+    useEffect(() => {
+      onChangePage(1)
+    }, [sortBy, onChangePage, voteAverage, activeGenresId])
 
   const formTagsHandler = (id: number) => {
     if (activeGenresId.includes(id)) {
@@ -37,7 +37,6 @@ export const FilteredMoviesPage: FC = () => {
       setActiveGenresId(state => [...state, id])
     }
   }
-
   const resetFormHandler = () => {
     setVoteAverage([0, 10])
     setSortBy(SortMovie.popularityDesc)
@@ -51,6 +50,7 @@ export const FilteredMoviesPage: FC = () => {
     setVoteAverage([minValue, maxValue])
   }
 
+
   return (
     <div className={s.FilteredMoviesPageContainer}>
       <FiltersPanel ratingRangeHandler={ratingRangeHandler}
@@ -63,7 +63,9 @@ export const FilteredMoviesPage: FC = () => {
                     formTagsHandler={formTagsHandler}
                     resetFormHandler={resetFormHandler} />
       <div className={s.contentWrapper}>
-        <CategoryContent moviesData={discoverMovies}
+        <CategoryContent moviesData={resultDiscoverMovies}
+                         page={discoverMovies.page}
+                         totalPages={discoverMovies.total_pages}
                          onChangePage={onChangePage} />
       </div>
     </div>

@@ -1,9 +1,14 @@
-import type { baseMovieResponseType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
+import type { moviesDataType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
+
+
 
 export type CategoryContentType = {
   categoryTitle?: string | null;
-  moviesData: baseMovieResponseType  | undefined;
+  moviesData: moviesDataType[]  |   undefined;
+  totalPages: number |   undefined;
+  page: number |   undefined
   isLoading?: boolean
   isFetching?: boolean
   onChangePage?: (page: number) => void
 }
+

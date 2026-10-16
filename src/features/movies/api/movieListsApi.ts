@@ -1,6 +1,6 @@
 import { baseApi } from '@/app/baseApi.ts'
 import {
-  baseMovieResponse,
+  baseMovieResponse, type detailsMovieParamsType, detailsMovieResponse,
   type discoverMoviesParamsType,
   type genreMovieParamsType,
   genreMovieResponse,
@@ -42,13 +42,20 @@ const movieListApi = baseApi.injectEndpoints({
       responseSchema: baseMovieResponse,
     }),
 
-
+    getDetailsMovies: build.query({
+      query: ({movie_id, ...params }: detailsMovieParamsType) => ({
+        url: `/movie/${movie_id}`,
+        params
+      }),
+      responseSchema: detailsMovieResponse,
+    }),
   }),
 })
 
 
 export const {
   useGetCategoryMoviesQuery,
+  useGetDetailsMoviesQuery,
   useGetDiscoverMoviesQuery,
   useGetGenreMoviesQuery,
   useGetSearchMoviesQuery

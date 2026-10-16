@@ -1,7 +1,9 @@
-import type { baseResultsMovieResponseType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
+import type {
+  moviesDataType,
+} from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
 
 export type MovieCardType = {
-  moviesData: baseResultsMovieResponseType[]
+  moviesData: moviesDataType[] | null
   categoryTitle: string
   redirectPath?: string
   countCard?: number

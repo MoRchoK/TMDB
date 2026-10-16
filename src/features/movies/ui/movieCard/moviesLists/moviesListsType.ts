@@ -1,6 +1,10 @@
-import type { baseResultsMovieResponseType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
+import type { moviesDataType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
+
+
 
 export type MoviesListsType = {
-  moviesData: baseResultsMovieResponseType[]
+  moviesData: moviesDataType[] | null
   countCard?: number
 }
+
+
