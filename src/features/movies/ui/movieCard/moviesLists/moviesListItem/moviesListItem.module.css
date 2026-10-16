@@ -47,6 +47,13 @@
     transition: all .3s ease
 }
 
+.liked {
+    fill: #facc15;
+    transition: all .3s ease;
+
+
+}
+
 .likeIconWrapper {
     opacity: 0;
     position: absolute;
@@ -68,15 +75,16 @@
     &:hover .likeIcon {
         fill: white;
     }
+
     &:hover .liked {
         fill: #facc15;
     }
+
+    &:has(.liked) {
+        opacity: 1;
+    }
 }
 
-.liked{
-    fill: #facc15;
-    transition: all .3s ease
-}
 
 .cardImage {
     width: 100%;
@@ -85,6 +93,7 @@
     display: block;
     transition: transform .2s ease;
     aspect-ratio: 2 / 3;
+
     &:hover {
         transform: scale(1.02);
     }
