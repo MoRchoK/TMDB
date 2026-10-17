@@ -29,20 +29,20 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
   return (
     <TextField id="outlined-basic" variant="outlined"
                type={'search'}
-
                onInput={onInputHandler}
                defaultValue={defaultValue}
-               helperText="Incorrect entry."
                sx={{
                  maxWidth: '465px',
                  minWidth: '240px',
                  width: '100%',
+
                  '& .MuiInputBase-input::placeholder': {
                    color: theme.palette.text.secondary,
                  },
                  '& .MuiInputBase-root': {
                    height: 40,
                    borderRadius: '999px',
+                   color: theme.palette.text.primary,
                    border: `1px solid ${theme.palette.border.accent}`,
                    backgroundColor: theme.palette.background.default,
                  },
