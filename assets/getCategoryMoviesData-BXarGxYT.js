@@ -1,0 +1,1 @@
+var e=e=>{if(e)return e.map(e=>({id:e.id,title:e.title,vote_average:e.vote_average,poster_path:e.poster_path,backdrop_path:e.backdrop_path}))||null};export{e as t};
