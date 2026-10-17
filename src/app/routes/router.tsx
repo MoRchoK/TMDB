@@ -1,40 +1,33 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createHashRouter, Navigate } from 'react-router'
 import { App } from '@/App.tsx'
 import { categoriesPath, Path } from '@/common/constants'
-import { CategoryPage } from '@/features/movies/ui/categoryPage/CategoryPage.tsx'
-import { FilteredMoviesPage } from '@/features/movies/ui/filteredMoviesPage'
-import { SearchPage } from '@/features/movies/ui/searchPage'
-import { FavoritesPage } from '@/features/movies/ui/favoritesPage'
-import { MainPage } from '@/features/movies/ui/mainPage/MainPage.tsx'
-import { CategoryMovies } from '@/features/movies/ui/categoryPage/сategoryMovies/CategoryMovies.tsx'
-import { SearchMovies } from '@/features/movies/ui/searchPage/searchMovies'
-import { MovieDetailsPage } from '@/features/movies/ui/movieDetails/MovieDetailsPage.tsx'
 import { ErrorPage } from '@/common/components/errorPage'
 
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: Path.Main,
     element: <App />,
+    HydrateFallback: () => null,
     children: [
-      { index: true, Component: MainPage },
+      { index: true, lazy: () => import('@/features/movies/ui/mainPage/MainPage.tsx').then(m => ({ Component: m.MainPage })) },
       {
         path: Path.CategoryMovies,
-        Component: CategoryPage,
+        lazy: () => import('@/features/movies/ui/categoryPage/CategoryPage.tsx').then(m => ({ Component: m.CategoryPage })),
         children: [
           { index: true, element: <Navigate to={`./${categoriesPath.PopularMovies}`} replace/> },
-          { path: ':category', Component: CategoryMovies },
+          { path: ':category', lazy: () => import('@/features/movies/ui/categoryPage/сategoryMovies/CategoryMovies.tsx').then(m => ({ Component: m.CategoryMovies })) },
         ],
       },
-      { path: Path.FilteredMovies, Component: FilteredMoviesPage },
+      { path: Path.FilteredMovies, lazy: () => import('@/features/movies/ui/filteredMoviesPage').then(m => ({ Component: m.FilteredMoviesPage })) },
       { path: Path.Search,
-        Component: SearchPage,
+        lazy: () => import('@/features/movies/ui/searchPage').then(m => ({ Component: m.SearchPage })),
         children:[
-          { path: ':search', Component: SearchMovies },
+          { path: ':search', lazy: () => import('@/features/movies/ui/searchPage/searchMovies').then(m => ({ Component: m.SearchMovies })) },
         ] },
-      { path: Path.Favorites, Component: FavoritesPage },
-      { path: Path.Movie, Component: MovieDetailsPage, children: [
-          {path: ':movieId', Component: MovieDetailsPage}
+      { path: Path.Favorites, lazy: () => import('@/features/movies/ui/favoritesPage').then(m => ({ Component: m.FavoritesPage })) },
+      { path: Path.Movie, lazy: () => import('@/features/movies/ui/movieDetails/MovieDetailsPage.tsx').then(m => ({ Component: m.MovieDetailsPage })), children: [
+          {path: ':movieId', lazy: () => import('@/features/movies/ui/movieDetails/MovieDetailsPage.tsx').then(m => ({ Component: m.MovieDetailsPage }))}
         ]},
     ],
   },

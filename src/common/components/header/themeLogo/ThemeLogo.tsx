@@ -18,10 +18,10 @@ export const ThemeLogo: FC = () => {
   return (
     <div className={s.themeLogoContainer} onClick={onThemeHandler}>
       <svg className={`${s.themeIcon} ${themeMode === lightTheme ? s.visible : ''}`}>
-        <use href={'/iconsSprites.svg#moonStars'} />
+        <use href={`${import.meta.env.BASE_URL}iconsSprites.svg#moonStars`} />
       </svg>
       <svg className={`${s.themeIcon} ${themeMode === darkTheme ? s.visible : ''}`}>
-        <use href={'/iconsSprites.svg#sun'} />
+        <use href={`${import.meta.env.BASE_URL}iconsSprites.svg#sun`} />
       </svg>
     </div>
   )

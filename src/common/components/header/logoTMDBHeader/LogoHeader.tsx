@@ -8,7 +8,7 @@ export const LogoTMDBHeader: React.FC = () => {
   return (
     <NavLink to={Path.Main} className={s.logoWrapper}>
       <svg>
-        <use href="/iconsSprites.svg#TMDMLogo" />
+        <use href={`${import.meta.env.BASE_URL}iconsSprites.svg#TMDMLogo`} />
       </svg>
     </NavLink>
   )

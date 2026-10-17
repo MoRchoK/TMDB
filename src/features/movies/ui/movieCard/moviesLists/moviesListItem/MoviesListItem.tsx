@@ -52,7 +52,7 @@ export const MoviesListItem = memo(({
         <img src={imageUrl} alt={'Movie Poster'} className={s.cardImage} onClick={onCardHandler} />
         <div className={s.likeIconWrapper} onClick={handleLike}>
           <svg className={`${s.likeIcon} ${isLiked() && s.liked}`} width={20} height={20}>
-            <use href="/iconsSprites.svg#like" />
+            <use href={`${import.meta.env.BASE_URL}iconsSprites.svg#like`} />
           </svg>
         </div>
       </div>
