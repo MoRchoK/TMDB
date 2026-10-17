@@ -1,3 +1,26 @@
+/* Theme colors: :root — light theme, [data-theme='dark'] — dark theme (data-theme is set in App.tsx) */
+:root {
+    --color-text-primary: #111827;
+    --color-text-secondary: #111827;
+    --color-text-muted: #4b5563;
+    --color-bg-default: #fff;
+    --color-bg-paper: #e5e7eb;
+    --color-bg-accent: #f3f4f6;
+    --color-bg-skeleton: rgba(0, 0, 0, 0.11);
+    --color-border: #e5e7eb;
+}
+
+:root[data-theme='dark'] {
+    --color-text-primary: #fff;
+    --color-text-secondary: #f8fafc;
+    --color-text-muted: #94a3b8;
+    --color-bg-default: #141c2c;
+    --color-bg-paper: #1f2b40;
+    --color-bg-accent: #0f172a;
+    --color-bg-skeleton: rgba(255, 255, 255, 0.08);
+    --color-border: #1f2b40;
+}
+
 /* Reset and base styles  */
 * {
     padding: 0px;

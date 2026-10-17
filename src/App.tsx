@@ -2,12 +2,13 @@ import { Header } from '@/common/components/header'
 import { Footer } from '@/common/components/footer/Footer.tsx'
 import s from './App.module.css'
 import { Outlet } from 'react-router'
-import { Box, GlobalStyles, LinearProgress } from '@mui/material'
+import { Box, LinearProgress } from '@mui/material'
 import { useAppSelector } from '@/common/utils/hooks/useAppSelector.ts'
 import { selectThemeMode } from '@/app/appReducer.ts'
-import { getTheme, getThemeCssVariables } from '@/common/theme/theme.ts'
+import { getTheme } from '@/common/theme/theme.ts'
 import { ToastContainer } from 'react-toastify'
 import { useGlobalLoading } from '@/common/utils/hooks/useGlobalLoading.ts'
+import { useEffect } from 'react'
 
 
 export const App = () => {
@@ -15,10 +16,13 @@ export const App = () => {
   const theme = getTheme(themeMode)
   const isGlobalLoading  = useGlobalLoading()
 
+  useEffect(() => {
+    document.documentElement.dataset.theme = themeMode
+  }, [themeMode])
+
 
   return (
     <div>
-      <GlobalStyles styles={{ ':root': getThemeCssVariables(themeMode) }} />
       <Header />
       {isGlobalLoading && <LinearProgress
         sx={{
