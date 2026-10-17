@@ -1,12 +1,12 @@
 import { type PayloadAction } from '@reduxjs/toolkit'
 import { createAppSlice } from '@/common/utils/createAppSlice.ts'
-import type { darkTheme, lightTheme } from '@/common/theme/theme.ts'
+import { darkTheme, lightTheme } from '@/common/theme/theme.ts'
 import { localStorageKeys } from '@/common/constants'
 
 const initialState: {
   themeMode: ThemeMode
 } = {
-  themeMode: localStorage.getItem(localStorageKeys.themeMode)  as ThemeMode,
+  themeMode: localStorage.getItem(localStorageKeys.themeMode) === darkTheme ? darkTheme : lightTheme,
 }
 
 
