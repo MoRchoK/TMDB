@@ -43,7 +43,7 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
                    height: 40,
                    borderRadius: '999px',
                    color: theme.palette.text.primary,
-                   border: `1px solid ${theme.palette.border.accent}`,
+                   border: theme.palette.mode === 'light' ? `1px solid ${theme.palette.primary.dark}` : 'none',
                    backgroundColor: theme.palette.background.default,
                  },
                  '& .MuiOutlinedInput-notchedOutline': {

@@ -15,7 +15,7 @@ export const Header: FC = () => {
 
   return (
     <Box className={s.header} sx={{
-      backgroundColor: theme.palette.background.accent,
+      backgroundColor: theme.palette.primary.dark,
       color: theme.palette.text.primary
     }}>
       <div className={s.headerContainer}>
