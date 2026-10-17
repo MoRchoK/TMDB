@@ -10,7 +10,10 @@
     cursor: pointer;
     transition: all 0.25s ease;
 
+    position: relative;
+
     svg {
+        width: 25px;
         height: 25px;
     }
 
@@ -18,4 +21,16 @@
         border-color: #535bf2;
         transform: translateY(-4px);
     }
+}
+
+.themeIcon {
+    position: absolute;
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.visible {
+    opacity: 1;
+    transform: rotate(0) scale(1);
 }

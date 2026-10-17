@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { type FC, useMemo } from 'react'
 import { useOutletContext, useParams } from 'react-router'
 import { CategoryContent } from '@/features/movies/ui/categoryPage/categoryContent'
 import { useGetCategoryMoviesQuery } from '../../../api/movieListsApi.ts'
@@ -9,14 +9,21 @@ import { getCategoryMoviesData } from '@/common/utils/getCategoryMoviesData.ts'
 
 
 export const CategoryMovies: FC = () => {
-  const { category } = useParams<{ category:CategoriesPath }>()
+  const { category } = useParams<{ category: CategoriesPath }>()
   const { page, onChangePage } = useOutletContext<CategoryContext>()
-  const path:CategoriesPath   = category || categoriesPath.PopularMovies
-  const categoryTitle: string = category? categoryMoviesByPath[path].title : 'Popular Movies'
-  const { data, isLoading, isFetching } = useGetCategoryMoviesQuery({ category:path, page })
-  const resultCategoryData = getCategoryMoviesData(data?.results)
 
+  const path: CategoriesPath = category ?? categoriesPath.PopularMovies
+  const categoryTitle = categoryMoviesByPath[path].title
 
+  const { data, isLoading, isFetching } = useGetCategoryMoviesQuery({
+    category: path,
+    page,
+  })
+
+  const resultCategoryData = useMemo(
+    () => getCategoryMoviesData(data?.results),
+    [data?.results],
+  )
 
   return (
     <CategoryContent
@@ -26,7 +33,7 @@ export const CategoryMovies: FC = () => {
       isFetching={isFetching}
       isLoading={isLoading}
       moviesData={resultCategoryData}
-      categoryTitle={categoryTitle }
+      categoryTitle={categoryTitle}
     />
   )
 }

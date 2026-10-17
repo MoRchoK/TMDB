@@ -45,9 +45,7 @@
           />
 </symbol>
     <symbol id="sun" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 48 48"
-            width="48px"
-            height="48px">
+            viewBox="5 5 38 38">
         <path fill="#FF9800" d="M11 11H37V37H11z"/>
         <path fill="#FF9800" d="M11.272 11.272H36.728V36.728H11.272z" transform="rotate(-45.001 24 24)"/>
         <path fill="#FFEB3B"

@@ -36,7 +36,7 @@
 }
 
 .movieTitle {
-    color: #111827;
+    color: var(--color-text-primary);
     font-weight: 500;
     height: 100%;
     cursor: pointer;

@@ -13,12 +13,8 @@ export const Header: FC = () => {
   const themeMode = useAppSelector(selectThemeMode)
   const theme = getTheme(themeMode)
 
-
-
-
   return (
     <Box className={s.header} sx={{
-      // @ts-ignore
       backgroundColor: theme.palette.background.accent,
       color: theme.palette.text.primary
     }}>

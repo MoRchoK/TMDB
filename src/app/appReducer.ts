@@ -5,15 +5,9 @@ import type { darkTheme, lightTheme } from '@/common/theme/theme.ts'
 const initialState: {
   themeMode: ThemeMode
   error: string | null
-  isLoggedIn: boolean
-  login: string | null
-  captcha: boolean
 } = {
   themeMode: 'light' as ThemeMode,
   error: null,
-  captcha: false,
-  isLoggedIn: false,
-  login: null,
 }
 
 
@@ -29,7 +23,9 @@ export const appSlice = createAppSlice({
     changeThemeModeAC: create.reducer((state, action: PayloadAction<{ themeMode: ThemeMode }>) => {
       state.themeMode = action.payload.themeMode
     }),
-
+    setLoadingAppAC: create.reducer((state, action: PayloadAction<{ themeMode: ThemeMode }>) => {
+      state.themeMode = action.payload.themeMode
+    }),
   }),
 
 })

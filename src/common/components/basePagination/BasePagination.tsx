@@ -30,6 +30,10 @@ export const BasePagination: FC<BasePaginationType> = ({ totalPages, page, onCha
     <Pagination
       count={countPages}
       sx={{
+        '& .MuiPaginationItem-root': {
+          color: 'var(--color-text-primary)',
+          borderColor: 'var(--color-border)',
+        },
         '& .MuiPaginationItem-root.Mui-selected': {
           backgroundColor: '#2563eb',
           color: 'white',

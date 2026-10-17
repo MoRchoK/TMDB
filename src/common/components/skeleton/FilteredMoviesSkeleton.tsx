@@ -14,6 +14,7 @@ export const FilteredMoviesSkeleton = () => {
           width: '250px',
           height: '530px',
           borderRadius: '12px',
+          backgroundColor: 'var(--color-bg-skeleton)',
 
         }}
       />

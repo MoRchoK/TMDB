@@ -9,7 +9,7 @@ const CAST_PLACEHOLDERS = 6;
 const GENRE_PLACEHOLDERS = [60, 72, 64];
 
 export const MovieDetailsPageSkeleton: FC = () => (
-  <div className={s.pageContainer} aria-busy="true" aria-live="polite">
+  <Box className={s.pageContainer} aria-busy="true" aria-live="polite" sx={{ '& .MuiSkeleton-root': { backgroundColor: 'var(--color-bg-skeleton)' } }}>
     <section className={s.heroSection}>
       <Skeleton
         variant="rectangular"
@@ -58,5 +58,5 @@ export const MovieDetailsPageSkeleton: FC = () => (
        <MovieCardSkeleton heightCard={'270px'} countCard={6}/>
       </div>
     </section>
-  </div>
+  </Box>
 );

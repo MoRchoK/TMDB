@@ -43,7 +43,7 @@
 }
 
 .title {
-    color: #111827;
+    color: var(--color-text-primary);
     font-size: 36px;
     font-weight: 700;
     line-height: 1.1;
@@ -75,7 +75,7 @@
 }
 
 .metaText {
-    color: #4b5563;
+    color: var(--color-text-muted);
     font-weight: 500
 }
 
@@ -93,7 +93,7 @@
 }
 
 .description {
-    color: #374151;
+    color: var(--color-text-muted);
     font-size: 15px;
     line-height: 1.6;
     max-width: 720px;
@@ -109,7 +109,7 @@
 .genresLabel {
     font-size: 16px !important;
     font-weight: 600 !important;
-    color: #111827;
+    color: var(--color-text-primary);
 }
 
 .genresList {
@@ -119,8 +119,8 @@
 }
 
 .genreChip {
-    background-color: #e5e7eb;
-    color: #1f2937;
+    background-color: var(--color-bg-paper) !important;
+    color: var(--color-text-primary) !important;
     border-radius: 16px;
     font-size: 14px
 }
@@ -135,7 +135,7 @@
 .sectionTitle {
     font-size: 24px !important;
     font-weight: 600 !important;
-    color: #213547 !important;
+    color: var(--color-text-primary) !important;
 }
 
 /* ─── Cast ─────────────────────────────────────────────── */
@@ -160,7 +160,7 @@
 }
 
 .castName {
-    color: #213547;
+    color: var(--color-text-primary);
     font-weight: 600;
     font-size: 16px;
 }

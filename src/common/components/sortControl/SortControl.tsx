@@ -24,11 +24,25 @@ export const SortControl: FC<SortControlType > = ({optionsData , value , onChang
           id="demo-simple-select-outlined"
           value={value}
           onChange={handleChange}
+          MenuProps={{
+            slotProps: {
+              paper: {
+                sx: {
+                  backgroundColor: 'var(--color-bg-default)',
+                  color: 'var(--color-text-primary)',
+                },
+              },
+            },
+          }}
           sx={{
             height: 38,
             fontSize: 14,
+            color: 'var(--color-text-primary)',
+            '& .MuiSelect-icon': {
+              color: 'var(--color-text-primary)',
+            },
             '& .MuiOutlinedInput-notchedOutline': {
-              border: ' 1px solid #d1d5db'
+              border: ' 1px solid var(--color-border)'
             },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
               border: ' 1px solid #2563eb',

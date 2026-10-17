@@ -69,7 +69,7 @@ type MovieCardSkeletonType = {
 export const MovieCardSkeleton: FC<MovieCardSkeletonType> = ({ countCard = 5, heightCard = '300px' }) => {
 
   return (
-    <Box sx={{ maxWidth: '1200px', width: '100%', margin: '0 auto', display: 'flex', gap: '24px' }}>
+    <Box sx={{ maxWidth: '1200px', width: '100%', margin: '0 auto', display: 'flex', gap: '24px', '& .MuiSkeleton-root': { backgroundColor: 'var(--color-bg-skeleton)' } }}>
       {Array(countCard).fill(null).map((_value, index) => (
         <div style={{ width: '100%' }} key={index}>
           {/* постер */}
