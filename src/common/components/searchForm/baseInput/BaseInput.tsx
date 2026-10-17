@@ -1,7 +1,7 @@
 import type { FC, InputEventHandler } from 'react'
 import type { TextFieldProps } from '@mui/material/TextField'
 import TextField from '@mui/material/TextField'
-import { useAppSelector } from '../../../utils/useAppSelector'
+import { useAppSelector } from '../../../utils/hooks/useAppSelector.ts'
 import { getTheme } from '@/common/theme/theme.ts'
 import { selectThemeMode } from '@/app/appReducer.ts'
 
@@ -32,6 +32,7 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
 
                onInput={onInputHandler}
                defaultValue={defaultValue}
+               helperText="Incorrect entry."
                sx={{
                  maxWidth: '465px',
                  minWidth: '240px',

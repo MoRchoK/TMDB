@@ -1,7 +1,7 @@
 import { MovieCard } from '@/features/movies/ui/movieCard/MovieCard.tsx'
 import { MovieBanner } from '@/features/movies/ui/mainPage/movieBanner'
 import s from './mainPage.module.css'
-import { useBannerImage } from '@/common/hooks/useBannerImage.ts'
+import { useBannerImage } from '@/common/utils/hooks/useBannerImage.ts'
 import { getUrlBannerImage } from '@/common/utils/getUrlBannerImage.ts'
 import type { baseResultsMovieResponseType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
 import { memo, useCallback, useMemo } from 'react'

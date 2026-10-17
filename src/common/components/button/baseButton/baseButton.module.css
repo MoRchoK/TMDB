@@ -11,7 +11,9 @@
     font-size: 14px;
     border: 1px solid #d1d5db;
 }
-
+.disabledBtn {
+    opacity: .6
+}
 .accentButton{
     border: none;
     color: white;

@@ -9,6 +9,7 @@ import { MainPage } from '@/features/movies/ui/mainPage/MainPage.tsx'
 import { CategoryMovies } from '@/features/movies/ui/categoryPage/сategoryMovies/CategoryMovies.tsx'
 import { SearchMovies } from '@/features/movies/ui/searchPage/searchMovies'
 import { MovieDetailsPage } from '@/features/movies/ui/movieDetails/MovieDetailsPage.tsx'
+import { ErrorPage } from '@/common/components/errorPage'
 
 
 export const router = createBrowserRouter([
@@ -36,9 +37,8 @@ export const router = createBrowserRouter([
           {path: ':movieId', Component: MovieDetailsPage}
         ]},
     ],
-
-
   },
-
-
+  {
+    path: Path.Error,
+    element: <ErrorPage />}
 ])

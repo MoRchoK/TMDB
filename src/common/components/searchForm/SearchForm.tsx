@@ -15,31 +15,46 @@ type Inputs = {
 
 
 export const SearchForm: FC<SearchFormType> = ({ defaultSearchValue, resetSearchHandler }) => {
-
   const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
-  } = useForm<Inputs>()
+    watch,
+  } = useForm<Inputs>({
+    defaultValues: { search: defaultSearchValue ?? '' },
+    mode: 'onChange', // валидация при вводе → isDirty/isValid живые
+  })
 
+  const searchValue = watch('search') ?? ''
+  const isSearchEmpty = searchValue.trim().length === 0
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    navigate(`${Path.Search}/${data.search}`)
+    const query = data.search.trim()
+    if (!query) return
+    navigate(`${Path.Search}/${encodeURIComponent(query)}`)
   }
 
   return (
     <div className={s.searchWrapper}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <BaseInput  {...register('search')}
-                    resetValue={resetSearchHandler}
-                    defaultValue={defaultSearchValue} />
+        <BaseInput
+          {...register('search', {
+            required: true,
+            validate: v => v.trim().length > 0, // пробелы не считаются
+          })}
 
-        <BaseButton title={'Search'}
-                    accentBtn={true}
-                    type={'submit'}
+          resetValue={resetSearchHandler}
+          defaultValue={defaultSearchValue}
+        />
+
+        <BaseButton
+          title="Search"
+          disabled={isSearchEmpty}   // ✅ кнопка мертва, пока пусто
+          accentBtn
+          type="submit"
         />
       </form>
     </div>
-
   )
 }

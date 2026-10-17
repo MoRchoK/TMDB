@@ -5,4 +5,5 @@ export type ButtonType = {
   type?: 'submit' | 'reset' | 'button'
   redirectPath?: string
   onClick?: () => void
+  disabled?: boolean
 }

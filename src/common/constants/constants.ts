@@ -8,6 +8,7 @@ export const defaultCardImage = getDefaultImage({ width: 360, height: 720 })
 
 export const localStorageKeys = {
   favoritesMovies: 'favoritesMovies',
+  themeMode: 'themeMode'
 } as const
 
 
@@ -55,6 +56,7 @@ export const Path = {
   Search: '/search',
   Favorites: '/favorites',
   Movie: '/movie',
+  Error: '*',
 } as const
 
 

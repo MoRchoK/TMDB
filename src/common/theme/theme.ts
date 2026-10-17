@@ -39,5 +39,5 @@ export const getThemeCssVariables = (themeMode: ThemeMode) => {
 
 export const getTheme = (themeMode: ThemeMode) =>
   createTheme({
-    palette: themeMode === "light" ? lightPalette : darkPalette,
+    palette: themeMode === lightTheme ? lightPalette : darkPalette,
   })

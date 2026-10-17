@@ -1,13 +1,12 @@
 import { type PayloadAction } from '@reduxjs/toolkit'
 import { createAppSlice } from '@/common/utils/createAppSlice.ts'
 import type { darkTheme, lightTheme } from '@/common/theme/theme.ts'
+import { localStorageKeys } from '@/common/constants'
 
 const initialState: {
   themeMode: ThemeMode
-  error: string | null
 } = {
-  themeMode: 'light' as ThemeMode,
-  error: null,
+  themeMode: localStorage.getItem(localStorageKeys.themeMode)  as ThemeMode,
 }
 
 
@@ -17,14 +16,11 @@ export const appSlice = createAppSlice({
   initialState,
   selectors: {
     selectThemeMode: (state): ThemeMode => state.themeMode,
-    selectAppError: (state): typeof initialState.error => state.error,
   },
   reducers: (create) => ({
     changeThemeModeAC: create.reducer((state, action: PayloadAction<{ themeMode: ThemeMode }>) => {
       state.themeMode = action.payload.themeMode
-    }),
-    setLoadingAppAC: create.reducer((state, action: PayloadAction<{ themeMode: ThemeMode }>) => {
-      state.themeMode = action.payload.themeMode
+      localStorage.setItem(localStorageKeys.themeMode, `${action.payload.themeMode}`)
     }),
   }),
 
@@ -33,7 +29,7 @@ export const appSlice = createAppSlice({
 export const appReducer = appSlice.reducer
 export const { changeThemeModeAC } =
   appSlice.actions
-export const { selectThemeMode, selectAppError } = appSlice.selectors
+export const { selectThemeMode } = appSlice.selectors
 
 
 

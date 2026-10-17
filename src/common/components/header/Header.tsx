@@ -5,7 +5,7 @@ import { ThemeLogo } from '@/common/components/header/themeLogo'
 import type { FC } from 'react'
 import { Box } from '@mui/material'
 import { getTheme } from '@/common/theme/theme.ts'
-import { useAppSelector } from '@/common/utils/useAppSelector.ts'
+import { useAppSelector } from '@/common/utils/hooks/useAppSelector.ts'
 import { selectThemeMode } from '@/app/appReducer.ts'
 
 

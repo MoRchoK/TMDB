@@ -10,6 +10,7 @@ export const useChangePages = (): [number, (page: number) => void] => {
   }, [])
 
   const isFirstRender = useRef(true)
+
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false

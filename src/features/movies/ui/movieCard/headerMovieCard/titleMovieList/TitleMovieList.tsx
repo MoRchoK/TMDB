@@ -1,6 +1,6 @@
 import type React from 'react';
 import s from './titleMovieList.module.css'
-import { useAppSelector } from '@/common/utils/useAppSelector.ts'
+import { useAppSelector } from '@/common/utils/hooks/useAppSelector.ts'
 import { selectThemeMode } from '@/app/appReducer.ts'
 import { getTheme } from '@/common/theme/theme.ts'
 

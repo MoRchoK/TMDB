@@ -19,7 +19,7 @@ export const CategoryContent: FC<CategoryContentType> = ({
 
 
   if (isLoading ) return <CategoryContentSkeleton />
-  if (!moviesData || !page || !totalPages) return <span>Movies is not found</span>
+  if (!moviesData?.length ) return <span>Movies is not found</span>
 
 
   return (
@@ -30,8 +30,8 @@ export const CategoryContent: FC<CategoryContentType> = ({
       </div>
       <div className={s.paginationWrapper}>
         <BasePagination disabled={isFetching}
-                        totalPages={totalPages}
-                        page={page}
+                        totalPages={totalPages || 1}
+                        page={page || 1}
                         onChange={onChangePage}
                         maxPages={500} />
       </div>

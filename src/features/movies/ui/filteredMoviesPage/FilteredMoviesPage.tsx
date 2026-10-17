@@ -1,10 +1,10 @@
-import { type FC, useCallback, useMemo, useState } from 'react'
+import { type FC, useCallback, useEffect, useMemo, useState } from 'react'
 import s from './filteredMoviesPage.module.css'
 import { useGetDiscoverMoviesQuery, useGetGenreMoviesQuery } from '@/features/movies/api/movieListsApi.ts'
 import { CategoryContent } from '@/features/movies/ui/categoryPage/categoryContent'
 import { SortMovie, type SortMovieType } from '@/features/movies/api'
 import { FilteredMoviesSkeleton } from '@/common/components/skeleton/FilteredMoviesSkeleton.tsx'
-import { useDebounceValue } from '@/common/hooks/useDebounceValue.ts'
+import { useDebounceValue } from '@/common/utils/hooks/useDebounceValue.ts'
 import { FiltersPanel } from '@/features/movies/ui/filteredMoviesPage/filtersPanel'
 import { getCategoryMoviesData } from '@/common/utils/getCategoryMoviesData.ts'
 
@@ -18,7 +18,9 @@ const INITIAL_QUERY = {
 export const FilteredMoviesPage: FC = () => {
   const [query, setQuery] = useState(INITIAL_QUERY)
   const debouncedVoteAverage = useDebounceValue<[number, number]>(query.voteAverage, 200)
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [query])
   const setSortBy = useCallback((sortBy: SortMovieType) => {
     setQuery(q => (q.sortBy === sortBy ? q : { ...q, sortBy, page: 1 }))
   }, [])

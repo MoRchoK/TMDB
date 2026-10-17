@@ -3,18 +3,18 @@ import { Footer } from '@/common/components/footer/Footer.tsx'
 import s from './App.module.css'
 import { Outlet } from 'react-router'
 import { Box, GlobalStyles, LinearProgress } from '@mui/material'
-import { useAppSelector } from '@/common/utils/useAppSelector.ts'
+import { useAppSelector } from '@/common/utils/hooks/useAppSelector.ts'
 import { selectThemeMode } from '@/app/appReducer.ts'
 import { getTheme, getThemeCssVariables } from '@/common/theme/theme.ts'
 import { ToastContainer } from 'react-toastify'
-import { useGlobalLoading } from '@/common/utils/useGlobalLoading.ts'
+import { useGlobalLoading } from '@/common/utils/hooks/useGlobalLoading.ts'
 
 
 export const App = () => {
   const themeMode = useAppSelector(selectThemeMode)
   const theme = getTheme(themeMode)
   const isGlobalLoading  = useGlobalLoading()
-  console.log(isGlobalLoading)
+
 
   return (
     <div>

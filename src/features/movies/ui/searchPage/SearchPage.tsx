@@ -9,7 +9,7 @@ import {Path} from '@/common/constants'
 export const SearchPage: FC = () => {
     const params = useParams()
     const navigate = useNavigate()
-    const {data, isFetching} = useGetSearchMoviesQuery({query: params.search || ''})
+    const {data, isFetching} = useGetSearchMoviesQuery({query: params.search || '' }, { skip: !params.search })
 
     const resetParamsHandler = () => {
         navigate(Path.Search)

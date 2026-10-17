@@ -4,7 +4,7 @@ import type { MoviesListItemType } from './moviesListItem.ts'
 import { localStorageKeys, Path, RATING_STYLES } from '@/common/constants'
 import { useNavigate } from 'react-router'
 import type { moviesDataType } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
-import { useLocalStorage } from '@/common/utils/useLocalStorage.ts'
+import { useLocalStorage } from '@/common/utils/hooks/useLocalStorage.ts'
 
 
 export const MoviesListItem = memo(({

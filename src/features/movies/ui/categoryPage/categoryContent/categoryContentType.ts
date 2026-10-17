@@ -4,9 +4,9 @@ import type { moviesDataType } from '@/common/schemas/movieListApiSchemas/movieL
 
 export type CategoryContentType = {
   categoryTitle?: string | null;
-  moviesData: moviesDataType[]  |   undefined;
-  totalPages: number |   undefined;
-  page: number |   undefined
+  moviesData?: moviesDataType[]  |   undefined;
+  totalPages?: number |   undefined;
+  page?: number |   undefined
   isLoading?: boolean
   isFetching?: boolean
   onChangePage?: (page: number) => void
