@@ -1,6 +1,24 @@
 import { createTheme } from "@mui/material/styles"
 import type { ThemeMode } from '@/app/appReducer.ts'
 
+declare module '@mui/material/styles' {
+  interface TypeBackground {
+    accent: string
+  }
+
+  interface TypeText {
+    info: string
+  }
+
+  interface Palette {
+    border: { default: string; accent: string }
+  }
+
+  interface PaletteOptions {
+    border?: { default: string; accent: string }
+  }
+}
+
 export const darkTheme = 'dark' as const
 export const lightTheme = 'light' as const
 
