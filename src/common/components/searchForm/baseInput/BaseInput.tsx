@@ -43,7 +43,7 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
                    height: 40,
                    borderRadius: '999px',
                    color: theme.palette.text.primary,
-                   border: `1px solid ${theme.palette.border.accent}`,
+                   border: `1px solid ${theme.palette.secondary.main}`,
                    backgroundColor: theme.palette.background.default,
                  },
                  '& .MuiOutlinedInput-notchedOutline': {
@@ -52,7 +52,7 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
                  '& .MuiInputBase-root.Mui-focused': {
                    outlineOffset: '2px',
                    outline: '3px solid #2563eb',
-                   border: `1px solid ${theme.palette.secondary}`,
+                   border: `1px solid ${theme.palette.secondary.main}`,
                  },
                }} placeholder={'Search for a movie'}  {...props} />
   )

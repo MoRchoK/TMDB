@@ -10,8 +10,8 @@ export const Footer = () => {
   const theme = getTheme(themeMode)
   return (
     <Box className={s.footerWrapper} sx={{
-      backgroundColor: theme.palette.background.accent,
-      borderColor: theme.palette.border.default,
+      backgroundColor: theme.palette.primary.dark,
+      borderColor: theme.palette.divider,
     }}>
       © 2026 Kinopoisk Demo · Data courtesy of TMDB.
     </Box>

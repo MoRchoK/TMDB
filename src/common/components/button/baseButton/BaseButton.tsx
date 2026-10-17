@@ -25,7 +25,7 @@ export const BaseButton: FC<ButtonType> = ({title,disabled, accentBtn, redirectP
              className={`${s.baseButton} ${accentBtn && s.accentButton} ${disabled && s.disabledBtn}`}
              disabled={disabled}
              style={{
-      borderColor: theme.palette.border.default,
+      borderColor: theme.palette.divider,
     }} >
       {title}
     </button>
