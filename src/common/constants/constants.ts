@@ -54,6 +54,7 @@ export const Path = {
   FilteredMovies: '/filtered-movies',
   Search: '/search',
   Favorites: '/favorites',
+  Movie: '/movie',
 } as const
 
 

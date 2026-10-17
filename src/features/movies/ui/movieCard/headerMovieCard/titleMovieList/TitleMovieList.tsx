@@ -1,8 +1,15 @@
 import type React from 'react';
 import s from './titleMovieList.module.css'
+import { useAppSelector } from '@/common/utils/useAppSelector.ts'
+import { selectThemeMode } from '@/app/appReducer.ts'
+import { getTheme } from '@/common/theme/theme.ts'
 
 
 
 export const TitleMovieList: React.FC<{ title: string }> = ({ title }) => {
-  return <span className={s.cardTitle}>{title}</span>;
+  const themeMode = useAppSelector(selectThemeMode)
+  const theme = getTheme(themeMode)
+  return <span className={s.cardTitle} style={{
+    color: theme.palette.text.primary
+  }}>{title}</span>;
 };

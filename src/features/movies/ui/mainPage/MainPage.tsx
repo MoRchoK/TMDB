@@ -47,7 +47,7 @@ export const MainPage = memo(() => {
                          moviesData={movies}
                          categoryTitle={categoryTitle}
                          key={index}
-                         redirectPath={`${Path.CategoryMovies}${path}`} />
+                         redirectPath={`${Path.CategoryMovies}/${path}`} />
             ))}
           </div>
         </>

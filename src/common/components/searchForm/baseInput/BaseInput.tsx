@@ -2,8 +2,11 @@ import type { FC, InputEventHandler } from 'react'
 import type { TextFieldProps } from '@mui/material/TextField'
 import TextField from '@mui/material/TextField'
 import { useAppSelector } from '../../../utils/useAppSelector'
-import { selectThemeMode } from '../../../../app/appReducer'
-import { getTheme } from '../../../theme/theme'
+import { getTheme } from '@/common/theme/theme.ts'
+import { selectThemeMode } from '@/app/appReducer.ts'
+
+
+
 
 
 type BaseInput = TextFieldProps & {
@@ -30,7 +33,6 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
                onInput={onInputHandler}
                defaultValue={defaultValue}
                sx={{
-
                  maxWidth: '465px',
                  minWidth: '240px',
                  width: '100%',
@@ -40,7 +42,7 @@ export const BaseInput: FC<BaseInput> = ({ defaultValue,resetValue, ...props }) 
                  '& .MuiInputBase-root': {
                    height: 40,
                    borderRadius: '999px',
-                   border: '1px solid #d1d5db',
+                   border: `1px solid ${theme.palette.border.accent}`,
                    backgroundColor: theme.palette.background.default,
                  },
                  '& .MuiOutlinedInput-notchedOutline': {

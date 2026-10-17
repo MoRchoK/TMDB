@@ -20,7 +20,6 @@ const baseResultsMovieResponse = z.object({
 })
 
 
-
 export const baseMovieResponse = z.object({
   page: z.int(),
   results: z.array(baseResultsMovieResponse),
@@ -101,53 +100,98 @@ export const searchMovieParams = z.object({
   year: z.string().optional(),
 })
 export const detailsMovieParams = z.object({
-  movie_id: z.int32(),
+  movie_id: z.string(),
   append_to_response: z.string().optional(),
   language: z.string().optional(),
 })
+export const similarMovieParams = z.object({
+  movie_id: z.string(),
+  page: z.int().optional(),
+  language: z.string().optional(),
+})
 
+
+export const creditsMovieParams = z.object({
+  movie_id: z.string(),
+  language: z.string().optional(),
+})
+
+
+const cast = z.object({
+  adult: z.boolean().nullable(),
+  gender: z.int().nullable(),
+  id: z.int(),
+  known_for_department: z.string().nullable(),
+  name: z.string().optional().nullable(),
+  original_name: z.string().nullable(),
+  popularity: z.number().nullable(),
+  profile_path: z.string().nullable(),
+  credit_id: z.string().nullable(),
+  cast_id: z.int().nullable(),
+  character: z.string().nullable(),
+  order: z.int(),
+})
+const crew = z.object({
+  adult: z.boolean(),
+  gender: z.int().optional(),
+  id: z.int(),
+  known_for_department: z.string().nullable(),
+  name: z.string(),
+  original_name: z.string().nullable(),
+  popularity: z.number(),
+  profile_path: z.string().nullable(),
+  credit_id: z.string().nullable(),
+  department: z.string().nullable(),
+  job: z.string(),
+})
+export const creditsMovieResponse = z.object({
+  id: z.int(),
+  cast: z.array(cast),
+  crew: z.array(crew),
+
+})
 export const detailsMovieResponse = z.object({
   adult: z.boolean(),
-  backdrop_path: z.string(),
+  backdrop_path: z.string().nullish(),
   belongs_to_collection: z.object({
     id: z.int(),
-    name: z.string(),
-    poster_path: z.string().optional(),
-    backdrop_path: z.string().optional(),
-  }),
+    name: z.string().nullable(),
+    poster_path: z.string().nullish(),
+    backdrop_path: z.string().nullish(),
+  }).nullable(),
   budget: z.int(),
   genres: z.array(genre),
-  homepage: z.string().optional(),
+  homepage: z.string().nullable(),
   id: z.int(),
-  imdb_i: z.string(),
-  origin_country: z.array(z.string()),
-  original_language: z.string(),
-  original_title: z.string(),
-  overview: z.string(),
+  imdb_i: z.string().nullish(),
+  origin_country: z.array(z.string().nullable()),
+  original_language: z.string().nullable(),
+  original_title: z.string().nullable(),
+  overview: z.string().nullable(),
   popularity: z.number(),
-  poster_path: z.string().optional(),
+  poster_path: z.string().nullish(),
   production_companies: z.array(z.object({
     id: z.int(),
-    logo_path: z.string().optional(),
-    name: z.string(),
-    origin_country: z.string(),
+    logo_path: z.string().nullish(),
+    name: z.string().nullable(),
+    origin_country: z.string().nullable(),
   })),
 
   production_countries: z.array(z.object({
-    iso_3166_1: z.string(),
-    name: z.string(),
+    iso_3166_1: z.string().nullable(),
+    name: z.string().nullable(),
   })),
-  release_date: z.string(),
+  release_date: z.string().nullable(),
   revenue: z.int(),
   runtime: z.int(),
   spoken_languages: z.array(z.object({
-    english_name: z.string(),
-    iso_639_1: z.string(),
-    name: z.string(),
+    english_name: z.string().nullable(),
+    iso_639_1: z.string().nullable(),
+    name: z.string().nullable(),
   })),
-  status: z.string(),
-  tagline: z.string(),
-  title: z.string(),
+  status: z.string().nullable(),
+  tagline: z.string().nullable(),
+  title: z.string().nullable(),
   video: z.boolean(),
   vote_average: z.number(),
   vote_count: z.int(),
@@ -163,6 +207,10 @@ export const moviesData = z.object({
 })
 
 
+
+
+export type similarMovieParamType = z.infer<typeof similarMovieParams>;
+export type creditsMovieParamsType = z.infer<typeof creditsMovieParams>;
 export type moviesDataType = z.infer<typeof moviesData>;
 export type detailsMovieResponseType = z.infer<typeof detailsMovieResponse>;
 export type detailsMovieParamsType = z.infer<typeof detailsMovieParams>;

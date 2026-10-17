@@ -1,0 +1,263 @@
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    margin: 0 auto;
+    max-width: 1230px;
+    width: 100%;
+    padding: 24px 15px;
+    min-height: calc(100vh - 75px - 55px);
+}
+
+/* ─── Hero ─────────────────────────────────────────────── */
+.heroSection {
+    display: flex;
+    gap: 32px;
+}
+
+.poster {
+    width: 200px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.infoColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.titleRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    button {
+        padding: 6px 12px;
+        font-size: 14px
+    }
+}
+
+.title {
+    color: #111827;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.backButton {
+    flex-shrink: 0;
+}
+
+.ratingCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    bottom: 12px;
+    right: 12px;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: 600;
+}
+
+.metaRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.metaText {
+    color: #4b5563;
+    font-weight: 500
+}
+
+.ratingBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.description {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 720px;
+}
+
+.genresBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.genresLabel {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #111827;
+}
+
+.genresList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genreChip {
+    background-color: #e5e7eb;
+    color: #1f2937;
+    border-radius: 16px;
+    font-size: 14px
+}
+
+/* ─── Sections (Cast / Similar) ────────────────────────── */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sectionTitle {
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: #213547 !important;
+}
+
+/* ─── Cast ─────────────────────────────────────────────── */
+.castGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+}
+
+.castItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+.castAvatar {
+    width: 170px !important;
+    height: 170px !important;
+    margin-bottom: 6px;
+}
+
+.castName {
+    color: #213547;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.castRole {
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+/* ─── Similar Movies ───────────────────────────────────── */
+.similarGrid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.similarCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.similarPosterWrapper {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.similarPoster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.similarCard:hover .similarPoster {
+    transform: scale(1.05);
+}
+
+.similarRating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 6px;
+    gap: 2px;
+    border-radius: 50%;
+    background-color: #f59e0b;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.similarTitle {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* ─── Адаптив ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .castGrid,
+    .similarGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .castGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .similarGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .castGrid,
+    .similarGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .title {
+        font-size: 22px !important;
+    }
+}
+

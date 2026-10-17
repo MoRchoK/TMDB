@@ -1,10 +1,11 @@
 import { baseApi } from '@/app/baseApi.ts'
 import {
-  baseMovieResponse, type detailsMovieParamsType, detailsMovieResponse,
+  baseMovieResponse, type creditsMovieParamsType,
+  creditsMovieResponse, type detailsMovieParamsType, detailsMovieResponse,
   type discoverMoviesParamsType,
   type genreMovieParamsType,
   genreMovieResponse,
-  type getPopularMoviesParamsType, type searchMovieParamsType,
+  type getPopularMoviesParamsType, type searchMovieParamsType, type similarMovieParamType,
 } from '@/common/schemas/movieListApiSchemas/movieListApiSchemas.ts'
 
 
@@ -49,12 +50,31 @@ const movieListApi = baseApi.injectEndpoints({
       }),
       responseSchema: detailsMovieResponse,
     }),
+
+    getCreditsMovie: build.query({
+      query: ({movie_id, ...params }: creditsMovieParamsType) => ({
+        url: `/movie/${movie_id}/credits`,
+        params
+      }),
+      responseSchema: creditsMovieResponse,
+    }),
+    getSimilarMovies: build.query({
+      query: ({movie_id, ...params }: similarMovieParamType) => ({
+        url: `/movie/${movie_id}/similar`,
+        params
+      }),
+      responseSchema: baseMovieResponse,
+    }),
+
+
   }),
 })
 
 
 export const {
   useGetCategoryMoviesQuery,
+  useGetSimilarMoviesQuery,
+  useGetCreditsMovieQuery,
   useGetDetailsMoviesQuery,
   useGetDiscoverMoviesQuery,
   useGetGenreMoviesQuery,

@@ -8,6 +8,7 @@ import { FavoritesPage } from '@/features/movies/ui/favoritesPage'
 import { MainPage } from '@/features/movies/ui/mainPage/MainPage.tsx'
 import { CategoryMovies } from '@/features/movies/ui/categoryPage/сategoryMovies/CategoryMovies.tsx'
 import { SearchMovies } from '@/features/movies/ui/searchPage/searchMovies'
+import { MovieDetailsPage } from '@/features/movies/ui/movieDetails/MovieDetailsPage.tsx'
 
 
 export const router = createBrowserRouter([
@@ -31,6 +32,9 @@ export const router = createBrowserRouter([
           { path: ':search', Component: SearchMovies },
         ] },
       { path: Path.Favorites, Component: FavoritesPage },
+      { path: Path.Movie, Component: MovieDetailsPage, children: [
+          {path: ':movieId', Component: MovieDetailsPage}
+        ]},
     ],
 
 
