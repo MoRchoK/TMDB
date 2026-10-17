@@ -211,6 +211,7 @@ export const moviesData = z.object({
 
 export type similarMovieParamType = z.infer<typeof similarMovieParams>;
 export type creditsMovieParamsType = z.infer<typeof creditsMovieParams>;
+export type castType = z.infer<typeof cast>;
 export type moviesDataType = z.infer<typeof moviesData>;
 export type detailsMovieResponseType = z.infer<typeof detailsMovieResponse>;
 export type detailsMovieParamsType = z.infer<typeof detailsMovieParams>;

@@ -18,8 +18,8 @@ export const CategoryContent: FC<CategoryContentType> = ({
                                                          }) => {
 
 
-  if (isLoading || !page || !totalPages ) return <CategoryContentSkeleton />
-  if (!moviesData) return <span>Movies is not found</span>
+  if (isLoading ) return <CategoryContentSkeleton />
+  if (!moviesData || !page || !totalPages) return <span>Movies is not found</span>
 
 
   return (

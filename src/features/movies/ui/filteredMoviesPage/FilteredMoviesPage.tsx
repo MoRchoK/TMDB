@@ -44,8 +44,8 @@ export const FilteredMoviesPage: FC = () => {
   }
 
 
-  if (!discoverMovies?.results || !genreMovies?.genres || isLoadingDiscoverMovies || isLoadingGenreMovies) return <FilteredMoviesSkeleton />
-
+  if ( isLoadingDiscoverMovies || isLoadingGenreMovies) return <FilteredMoviesSkeleton />
+  if (!discoverMovies?.results || !genreMovies?.genres)  return <span>Movies not found</span>
   const ratingRangeHandler = ({ maxValue, minValue }: { maxValue: number, minValue: number }) => {
     setVoteAverage([minValue, maxValue])
   }
