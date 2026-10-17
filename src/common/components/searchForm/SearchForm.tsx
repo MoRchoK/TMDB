@@ -8,12 +8,14 @@ import { BaseInput } from '@/common/components/searchForm/baseInput'
 import type { SearchFormType } from '@/common/components/searchForm/searchFormType.ts'
 
 
+
 type Inputs = {
   search: string
 }
 
 
 export const SearchForm: FC<SearchFormType> = ({ defaultSearchValue, resetSearchHandler }) => {
+
   const navigate = useNavigate()
   const {
     register,

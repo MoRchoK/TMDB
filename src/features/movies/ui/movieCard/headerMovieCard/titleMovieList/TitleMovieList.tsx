@@ -1,10 +1,8 @@
-import type { FC } from 'react'
+import type React from 'react';
 import s from './titleMovieList.module.css'
 
 
 
-export const TitleMovieList: FC<{title: string}> = ({title}) => {
-  return (
-      <h3 className={s.cardTitle}>{title}</h3>
-  )
-}
+export const TitleMovieList: React.FC<{ title: string }> = ({ title }) => {
+  return <span className={s.cardTitle}>{title}</span>;
+};
